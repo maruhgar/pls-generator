@@ -1,0 +1,4 @@
+glob:trunk/.classpath
+relre:trunk/.settings*
+glob:trunk/.project
+relre:trunk/target/*

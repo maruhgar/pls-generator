@@ -38,31 +38,57 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/generate")
 public class PlaylistGenerator {
 
+    /**
+     * Content provider.
+     */
     private ContentProvider contentProvider;
 
+    /**
+     * Application context.
+     */
     private ApplicationContext applicationContext;
 
+    /**
+     * Sets the content provider service.
+     * @param provider Content Provider
+     */
     @Autowired
-    public void setContentProvider(ContentProvider contentProvider) {
-        this.contentProvider = contentProvider;
+    public final void setContentProvider(final ContentProvider provider) {
+        this.contentProvider = provider;
     }
 
+    /**
+     * Sets the application context.
+     * @param context Application Context
+     */
     @Autowired
-    public void setApplicationContext(ApplicationContext applicationContext) {
-        this.applicationContext = applicationContext;
+    public final void setApplicationContext(final ApplicationContext context) {
+        this.applicationContext = context;
     }
 
-
+    /**
+     * Generates the play list.
+     * @param files List of media files
+     * @param folders List of folders
+     * @return Playlist file
+     * @throws Exception Exception
+     */
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<byte[]> listContents(@RequestParam(value = "mp3List", required = false) String[] files,
-            @RequestParam(value = "dirList", required = false) String[] folders) throws Exception {
+    public final ResponseEntity<byte[]> listContents(@RequestParam(value = "mp3List", required = false) final String[] files,
+            @RequestParam(value = "dirList", required = false) final String[] folders) throws Exception {
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-type", "audio/x-scpls");
         headers.add("Content-Disposition", "filename=playlist.pls");
         return new ResponseEntity<byte[]>(getPlaylist(files, folders), headers, HttpStatus.OK);
     }
 
-    private byte[] getPlaylist(String[] files, String[] folders) {
+    /**
+     * Generates the play list.
+     * @param files List of media files
+     * @param folders List of folders
+     * @return Play list contents
+     */
+    private byte[] getPlaylist(final String[] files, final String[] folders) {
         StringBuilder stringBuilder = new StringBuilder();
         int count = 0;
 
@@ -90,7 +116,13 @@ public class PlaylistGenerator {
         return stringBuilder.toString().getBytes();
     }
 
-    private String getPlaylistForFile(String fileName, int count) {
+    /**
+     * Generates a play list for a media file.
+     * @param fileName Media file
+     * @param count Count of the media
+     * @return Play list string
+     */
+    private String getPlaylistForFile(final String fileName, final int count) {
         String playerUrl = this.applicationContext.getMessage("host.name", null, Locale.ENGLISH);
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("File"

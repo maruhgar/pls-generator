@@ -14,6 +14,6 @@
  * limitations under the License.
  */
 /**
- * Classes in this package represent the models in this application.
+ * Classes in this package represent the services in this application.
  */
-package net.sourceforge.jukebox.model;
+package net.sourceforge.jukebox.service;

@@ -21,5 +21,6 @@
 
         </table>
 
+        <p>Configuration issue?  Click <a href="<c:url value="/play/configure"/>"> here </a> to check and update</p>
     </body>
 </html>

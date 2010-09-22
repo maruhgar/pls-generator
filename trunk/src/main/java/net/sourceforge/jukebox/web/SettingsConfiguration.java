@@ -13,64 +13,75 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package net.sourceforge.jukebox.web;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintWriter;
-import java.util.List;
-import java.util.Map;
 
-import net.sourceforge.jukebox.model.ContentModel;
-import net.sourceforge.jukebox.service.ContentProvider;
+import javax.validation.Valid;
 
+import net.sourceforge.jukebox.model.Settings;
+
+import org.apache.commons.configuration.ConfigurationException;
+import org.apache.commons.configuration.FileConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
- * Controller to browse the media folder.
+ * Configure the application settings.
  */
 @Controller
-@RequestMapping("/browse")
-public class MediaBrowser {
+@RequestMapping("/configure")
+public class SettingsConfiguration {
 
     /**
-     * Content provider.
+     * Application configuration.
      */
-    private ContentProvider contentProvider;
+    private FileConfiguration configuration;
 
     /**
-     * Sets the content provider service.
-     * @param provider Content Provider
+     * Set the application configuration.
+     * @param fileConfiguration Configuration
      */
     @Autowired
-    public final void setContentProvider(final ContentProvider provider) {
-        this.contentProvider = provider;
+    public final void setConfiguration(final FileConfiguration fileConfiguration) {
+        this.configuration = fileConfiguration;
     }
 
     /**
-     * List the contents of the media folder.
-     * @param folder Media folder
-     * @return success view
-     * @throws Exception Exception
+     * Get the current application configuration settings.
+     * @return Settings
      */
     @RequestMapping(method = RequestMethod.GET)
-    public final ModelAndView listContents(@RequestParam(value = "folder", required = false) final String folder) throws Exception {
-        ModelAndView mav = new ModelAndView();
-        Map<String, List<ContentModel>> contents = this.contentProvider.getContent(folder);
-        mav.setViewName("listFiles");
-        mav.addObject("dir", contents.get("dir"));
-        mav.addObject("files", contents.get("files"));
-        return mav;
+    public final Settings getSettings() {
+        Settings settings = new Settings();
+        settings.load(this.configuration);
+        return settings;
     }
 
     /**
-     * Handles error scenarios.
+     * Updates application configuration.
+     * @param settings Settings data
+     * @param result Validation result
+     * @return Success view
+     * @throws ConfigurationException Configuration exception
+     */
+    @RequestMapping(method = RequestMethod.POST)
+    public final String update(@Valid final Settings settings, final BindingResult result) throws ConfigurationException {
+        if (result.hasErrors()) {
+            return "play/configure";
+        }
+        settings.save(configuration);
+        return "redirect:/play/browse";
+    }
+
+    /**
+     * Handles exceptions.
      * @param e Exception
      * @return Error view
      */
@@ -84,4 +95,5 @@ public class MediaBrowser {
         mav.addObject("errorStackTrace", stackTrace);
         return mav;
     }
+
 }

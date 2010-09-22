@@ -30,17 +30,26 @@ import net.sourceforge.jukebox.model.ContentModel;
  */
 public class ContentProvider {
 
+    /**
+     * Constant used in calculating modified days.
+     */
     private static final long MILLISECONDS_PER_DAY = 24 * 3600 * 1000;
 
+    /**
+     * Root folder.
+     */
     private String rootFolder;
 
+    /**
+     * Modified days.
+     */
     private int modifiedDays;
 
     /**
      * The root folder holding media.
      * @param folder folder name
      */
-    public void setRootFolder(final String folder) {
+    public final void setRootFolder(final String folder) {
         this.rootFolder = folder;
     }
 
@@ -97,7 +106,12 @@ public class ContentProvider {
         return contents;
     }
 
-    private boolean getUpdateStatus(File item) {
+    /**
+     * Check if the status of file is less than modified days.
+     * @param item File or folder
+     * @return <code>true</code> or <code>false</code>
+     */
+    private boolean getUpdateStatus(final File item) {
 
         boolean updateStatus = false;
 
@@ -111,13 +125,18 @@ public class ContentProvider {
         return updateStatus;
     }
 
-    public Collection<String> getAllFileNames(final String fileName) {
+    /**
+     * Get all the media files in the specified folder.
+     * @param folder Folder name
+     * @return Collection of media files
+     */
+    public final Collection<String> getAllFileNames(final String folder) {
 
         Collection<String> files = new ArrayList<String>();
 
         int len = rootFolder.length();
 
-        File file = new File(rootFolder + fileName);
+        File file = new File(rootFolder + folder);
 
         File[] listFile = file.listFiles();
 
