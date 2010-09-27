@@ -21,6 +21,8 @@ import java.util.Locale;
 
 import net.sourceforge.jukebox.service.ContentProvider;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.http.HttpHeaders;
@@ -31,12 +33,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+
 /**
  * Sends the playlist based on files/folders selected.
  */
 @Controller
 @RequestMapping("/generate")
 public class PlaylistGenerator {
+
+    private static final Logger logger = LoggerFactory.getLogger("PlaylistGenerator");
 
     /**
      * Content provider.
@@ -76,6 +81,7 @@ public class PlaylistGenerator {
     @RequestMapping(method = RequestMethod.POST)
     public final ResponseEntity<byte[]> listContents(@RequestParam(value = "mp3List", required = false) final String[] files,
             @RequestParam(value = "dirList", required = false) final String[] folders) throws Exception {
+        logger.info("Generating playlist");
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-type", "audio/x-scpls");
         headers.add("Content-Disposition", "filename=playlist.pls");

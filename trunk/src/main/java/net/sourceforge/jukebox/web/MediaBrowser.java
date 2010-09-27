@@ -24,6 +24,8 @@ import java.util.Map;
 import net.sourceforge.jukebox.model.ContentModel;
 import net.sourceforge.jukebox.service.ContentProvider;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -38,6 +40,8 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/browse")
 public class MediaBrowser {
+
+    private static final Logger logger = LoggerFactory.getLogger("PlaylistGenerator");
 
     /**
      * Content provider.
@@ -61,6 +65,7 @@ public class MediaBrowser {
      */
     @RequestMapping(method = RequestMethod.GET)
     public final ModelAndView listContents(@RequestParam(value = "folder", required = false) final String folder) throws Exception {
+        logger.info("Listing contents of " + folder);
         ModelAndView mav = new ModelAndView();
         Map<String, List<ContentModel>> contents = this.contentProvider.getContent(folder);
         mav.setViewName("listFiles");
