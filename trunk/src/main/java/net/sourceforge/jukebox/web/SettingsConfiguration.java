@@ -24,6 +24,8 @@ import net.sourceforge.jukebox.model.Settings;
 
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.FileConfiguration;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -38,6 +40,8 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/configure")
 public class SettingsConfiguration {
+
+    private static final Logger logger = LoggerFactory.getLogger("SettingsConfiguration");
 
     /**
      * Application configuration.
@@ -59,6 +63,9 @@ public class SettingsConfiguration {
      */
     @RequestMapping(method = RequestMethod.GET)
     public final Settings getSettings() {
+        if (logger.isInfoEnabled()) {
+            logger.info("Accessing the settings");
+        }
         Settings settings = new Settings();
         settings.load(this.configuration);
         return settings;
@@ -73,7 +80,11 @@ public class SettingsConfiguration {
      */
     @RequestMapping(method = RequestMethod.POST)
     public final String update(@Valid final Settings settings, final BindingResult result) throws ConfigurationException {
+        if (logger.isInfoEnabled()) {
+            logger.info("Updating the settings");
+        }
         if (result.hasErrors()) {
+            logger.warn("Validation errors updating the settings");
             return "play/configure";
         }
         settings.save(configuration);
@@ -87,6 +98,7 @@ public class SettingsConfiguration {
      */
     @ExceptionHandler(Exception.class)
     public final ModelAndView handleErrors(final Exception e) {
+        logger.error("Encountered error", e);
         ModelAndView mav = new ModelAndView();
         mav.setViewName("error");
         ByteArrayOutputStream baos = new ByteArrayOutputStream();

@@ -23,12 +23,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import net.sourceforge.jukebox.model.ContentModel;
 
 /**
  * Gets the contents.
  */
 public class ContentProvider {
+
+    private static final Logger logger = LoggerFactory.getLogger("ContentProvider");
 
     /**
      * Constant used in calculating modified days.
@@ -68,6 +73,10 @@ public class ContentProvider {
      */
     public final Map<String, List<ContentModel>> getContent(final String folder) {
 
+        if (logger.isInfoEnabled()) {
+            logger.info("Get content for " + folder);
+        }
+
         int rootFolderLength = this.rootFolder.length();
 
         List<ContentModel> folders = new ArrayList<ContentModel>();
@@ -79,6 +88,11 @@ public class ContentProvider {
         } else {
             parentFolder = this.rootFolder + folder;
         }
+
+        if (logger.isInfoEnabled()) {
+            logger.info("Parent folder is " + parentFolder);
+        }
+
         File parent = new File(parentFolder);
 
         File[] folderContents = parent.listFiles();
@@ -131,6 +145,10 @@ public class ContentProvider {
      * @return Collection of media files
      */
     public final Collection<String> getAllFileNames(final String folder) {
+
+        if (logger.isInfoEnabled()) {
+            logger.info("Get all media files in " + folder);
+        }
 
         Collection<String> files = new ArrayList<String>();
 

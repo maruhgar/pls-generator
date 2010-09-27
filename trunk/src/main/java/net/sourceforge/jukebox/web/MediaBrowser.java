@@ -41,7 +41,7 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/browse")
 public class MediaBrowser {
 
-    private static final Logger logger = LoggerFactory.getLogger("PlaylistGenerator");
+    private static final Logger logger = LoggerFactory.getLogger("MediaBrowser");
 
     /**
      * Content provider.
@@ -65,7 +65,9 @@ public class MediaBrowser {
      */
     @RequestMapping(method = RequestMethod.GET)
     public final ModelAndView listContents(@RequestParam(value = "folder", required = false) final String folder) throws Exception {
-        logger.info("Listing contents of " + folder);
+        if (logger.isInfoEnabled()) {
+            logger.info("Listing contents of " + folder);
+        }
         ModelAndView mav = new ModelAndView();
         Map<String, List<ContentModel>> contents = this.contentProvider.getContent(folder);
         mav.setViewName("listFiles");
@@ -81,6 +83,7 @@ public class MediaBrowser {
      */
     @ExceptionHandler(Exception.class)
     public final ModelAndView handleErrors(final Exception e) {
+        logger.error("Encountered error", e);
         ModelAndView mav = new ModelAndView();
         mav.setViewName("error");
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
