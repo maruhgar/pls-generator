@@ -41,6 +41,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/generate")
 public class PlaylistGenerator {
 
+    /**
+     * Logger object.
+     */
     private static final Logger logger = LoggerFactory.getLogger("PlaylistGenerator");
 
     /**

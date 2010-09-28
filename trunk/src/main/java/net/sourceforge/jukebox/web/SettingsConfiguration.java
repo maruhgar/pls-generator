@@ -41,6 +41,9 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/configure")
 public class SettingsConfiguration {
 
+    /**
+     * Logger object.
+     */
     private static final Logger logger = LoggerFactory.getLogger("SettingsConfiguration");
 
     /**
@@ -62,7 +65,7 @@ public class SettingsConfiguration {
      * @return Settings
      */
     @RequestMapping(method = RequestMethod.GET)
-    public final Settings getSettings() {
+    public Settings getSettings() {
         if (logger.isInfoEnabled()) {
             logger.info("Accessing the settings");
         }
@@ -79,7 +82,7 @@ public class SettingsConfiguration {
      * @throws ConfigurationException Configuration exception
      */
     @RequestMapping(method = RequestMethod.POST)
-    public final String update(@Valid final Settings settings, final BindingResult result) throws ConfigurationException {
+    public String update(@Valid final Settings settings, final BindingResult result) throws ConfigurationException {
         if (logger.isInfoEnabled()) {
             logger.info("Updating the settings");
         }

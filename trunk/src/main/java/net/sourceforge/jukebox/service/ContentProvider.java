@@ -33,6 +33,9 @@ import net.sourceforge.jukebox.model.ContentModel;
  */
 public class ContentProvider {
 
+    /**
+     * Logger object.
+     */
     private static final Logger logger = LoggerFactory.getLogger("ContentProvider");
 
     /**
@@ -71,7 +74,7 @@ public class ContentProvider {
      * @param folder folder holding the media
      * @return list of files and folders
      */
-    public final Map<String, List<ContentModel>> getContent(final String folder) {
+    public Map<String, List<ContentModel>> getContent(final String folder) {
 
         if (logger.isInfoEnabled()) {
             logger.info("Get content for " + folder);
@@ -144,7 +147,7 @@ public class ContentProvider {
      * @param folder Folder name
      * @return Collection of media files
      */
-    public final Collection<String> getAllFileNames(final String folder) {
+    public Collection<String> getAllFileNames(final String folder) {
 
         if (logger.isInfoEnabled()) {
             logger.info("Get all media files in " + folder);

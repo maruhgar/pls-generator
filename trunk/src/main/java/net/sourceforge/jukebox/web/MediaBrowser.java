@@ -41,6 +41,9 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/browse")
 public class MediaBrowser {
 
+    /**
+     * Logger object.
+     */
     private static final Logger logger = LoggerFactory.getLogger("MediaBrowser");
 
     /**
@@ -61,10 +64,9 @@ public class MediaBrowser {
      * List the contents of the media folder.
      * @param folder Media folder
      * @return success view
-     * @throws Exception Exception
      */
     @RequestMapping(method = RequestMethod.GET)
-    public final ModelAndView listContents(@RequestParam(value = "folder", required = false) final String folder) throws Exception {
+    public final ModelAndView listContents(@RequestParam(value = "folder", required = false) final String folder) {
         if (logger.isInfoEnabled()) {
             logger.info("Listing contents of " + folder);
         }
