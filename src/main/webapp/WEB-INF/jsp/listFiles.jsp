@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -10,8 +11,12 @@
         <meta http-equiv="expires" content="0">
 
         <script src="<c:url value="/script/toggleCheckboxes.js"/>"></script>
-        <link rel="stylesheet" type="text/css" href="<c:url value="/themes/default/css/mail_blue_all.css"/>">
 
+        <spring:theme var="css" code="css"/>
+        <c:if test="${not empty css}">
+            <link rel="stylesheet" type="text/css" href="<c:url value="${css}/mail_blue_all.css"/>">
+        </c:if>
+        <spring:theme var="images" code="images"/>
     </head>
 
     <body>
@@ -27,7 +32,7 @@
                             <tr>
                                 <td>
                                     <a href="<c:url value="/play/browse?folder=${items.absoluteFileName}"/>">
-                                        <img src="<c:url value="/themes/default/images/dir.gif"/>">&nbsp;${items.displayName}
+                                        <img src="<c:url value="${images}/dir.gif"/>">&nbsp;${items.displayName}
                                         <c:if test="${items.recentUpdate}" >
                                             <span style="color:red;text-decoration:blink">New!</span>
                                         </c:if>
@@ -50,7 +55,7 @@
                             </tr>
                             <c:forEach items="${dir}" var="items">
                                 <tr>
-                                    <td><img src="<c:url value="/themes/default/images/dir.gif"/>">&nbsp;${items.displayName}
+                                    <td><img src="<c:url value="${images}/dir.gif"/>">&nbsp;${items.displayName}
                                         <c:if test="${items.recentUpdate}" >
                                             <span style="color:red;text-decoration:blink">New!</span>
                                         </c:if>
@@ -60,7 +65,7 @@
                             </c:forEach>
                             <c:forEach items="${files}" var="items">
                                 <tr>
-                                    <td ><img src="<c:url value="/themes/default/images/mp3.jpg"/>" height="15" width="15">&nbsp;${items.displayName}
+                                    <td ><img src="<c:url value="${images}/mp3.jpg"/>" height="15" width="15">&nbsp;${items.displayName}
                                         <c:if test="${items.recentUpdate}" >
                                             <span style="color:red;text-decoration:blink">New!</span>
                                         </c:if>
