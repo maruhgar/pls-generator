@@ -29,12 +29,22 @@ import org.testng.annotations.Test;
  */
 public class SettingsTest {
 
+    /**
+     * Constat modified days.
+     */
+    private static final int MODIFIED_DAYS = 10;
+
+    /**
+     * Tests the <code>load</code> and <code>save</code> methods.
+     * @throws IOException IOException
+     * @throws ConfigurationException ConfigurationException
+     */
     @Test
-    public void testLoad() throws IOException, ConfigurationException {
+    public final void testLoad() throws IOException, ConfigurationException {
         Settings settings = new Settings();
         settings.setContentFolder("/var/media");
         settings.setPlayerUrl("http://localhost/play");
-        settings.setModifiedDays(10);
+        settings.setModifiedDays(MODIFIED_DAYS);
 
         File file = File.createTempFile("dummy", "properties");
         PropertiesConfiguration configuration = new PropertiesConfiguration(file);

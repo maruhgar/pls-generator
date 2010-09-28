@@ -134,20 +134,23 @@ public class Settings {
 
     /**
      * Equals.
+     * @param other the other object
+     * @return <code>true</code> or <code>false</code>
      */
-    public boolean equals(final Object other) {
+    public final boolean equals(final Object other) {
         if (other == null || this.getClass() != other.getClass()) {
             return false;
         }
-        return ObjectUtils.equals(this.contentFolder, ((Settings) other).contentFolder) &&
-            ObjectUtils.equals(this.playerUrl, ((Settings) other).playerUrl) &&
-            ObjectUtils.equals(this.modifiedDays, ((Settings) other).modifiedDays);
+        return ObjectUtils.equals(this.contentFolder, ((Settings) other).contentFolder)
+            && ObjectUtils.equals(this.playerUrl, ((Settings) other).playerUrl)
+            && ObjectUtils.equals(this.modifiedDays, ((Settings) other).modifiedDays);
     }
 
     /**
      * Hashcode.
+     * @return hashcode
      */
-    public int hashCode() {
+    public final int hashCode() {
         return ObjectUtils.hashCode(this.contentFolder) + ObjectUtils.hashCode(this.playerUrl)
             + ObjectUtils.hashCode(this.modifiedDays);
     }
