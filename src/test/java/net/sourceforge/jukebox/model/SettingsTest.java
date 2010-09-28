@@ -47,6 +47,7 @@ public class SettingsTest {
         settings.setModifiedDays(MODIFIED_DAYS);
 
         File file = File.createTempFile("dummy", "properties");
+        file.deleteOnExit();
         PropertiesConfiguration configuration = new PropertiesConfiguration(file);
         settings.save(configuration);
 

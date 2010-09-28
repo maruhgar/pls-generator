@@ -16,6 +16,8 @@
 
 package net.sourceforge.jukebox.model;
 
+import org.apache.commons.lang.ObjectUtils;
+
 /**
  * Class to holder file/folder properties.
  *
@@ -85,6 +87,28 @@ public class ContentModel {
         this.recentUpdate = update;
     }
 
+    /**
+     * Equals.
+     * @param other the other object
+     * @return <code>true</code> or <code>false</code>
+     */
+    public final boolean equals(final Object other) {
+        if (other == null || this.getClass() != other.getClass()) {
+            return false;
+        }
+        return ObjectUtils.equals(this.absoluteFileName, ((ContentModel) other).absoluteFileName)
+            && ObjectUtils.equals(this.displayName, ((ContentModel) other).displayName)
+            && ObjectUtils.equals(this.recentUpdate, ((ContentModel) other).recentUpdate);
+    }
+
+    /**
+     * Hashcode.
+     * @return hashcode
+     */
+    public final int hashCode() {
+        return ObjectUtils.hashCode(this.absoluteFileName) + ObjectUtils.hashCode(this.displayName)
+            + ObjectUtils.hashCode(this.recentUpdate);
+    }
 
 }
 
