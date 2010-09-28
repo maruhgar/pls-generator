@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<configuration debug="true">
+<configuration>
 
     <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
@@ -11,7 +11,7 @@
     <appender name="logfile" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>../logs/server.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>../logs/server-%d{yyyy/MM}.zip</fileNamePattern>
+            <fileNamePattern>${catalina.home}/logs/server-%d{yyyy/MM}.zip</fileNamePattern>
             <maxHistory>6</maxHistory>
         </rollingPolicy>
         <encoder>
