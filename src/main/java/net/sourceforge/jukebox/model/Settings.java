@@ -19,6 +19,7 @@ import javax.validation.constraints.Size;
 
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.FileConfiguration;
+import org.apache.commons.lang.ObjectUtils;
 
 /**
  * Application Settings.
@@ -129,5 +130,25 @@ public class Settings {
         configuration.setProperty(PLAYER_URL, this.playerUrl);
         configuration.setProperty(MODIFIED_DAYS, this.modifiedDays);
         configuration.save();
+    }
+
+    /**
+     * Equals.
+     */
+    public boolean equals(final Object other) {
+        if (other == null || this.getClass() != other.getClass()) {
+            return false;
+        }
+        return ObjectUtils.equals(this.contentFolder, ((Settings) other).contentFolder) &&
+            ObjectUtils.equals(this.playerUrl, ((Settings) other).playerUrl) &&
+            ObjectUtils.equals(this.modifiedDays, ((Settings) other).modifiedDays);
+    }
+
+    /**
+     * Hashcode.
+     */
+    public int hashCode() {
+        return ObjectUtils.hashCode(this.contentFolder) + ObjectUtils.hashCode(this.playerUrl)
+            + ObjectUtils.hashCode(this.modifiedDays);
     }
 }
