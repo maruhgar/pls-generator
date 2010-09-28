@@ -2,3 +2,5 @@ glob:trunk/.classpath
 relre:trunk/.settings*
 glob:trunk/.project
 relre:trunk/target/*
+glob:trunk/.checkstyle
+relre:trunk/test-output/*
