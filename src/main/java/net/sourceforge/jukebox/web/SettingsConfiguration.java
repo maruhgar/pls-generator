@@ -66,9 +66,8 @@ public class SettingsConfiguration {
      */
     @RequestMapping(method = RequestMethod.GET)
     public Settings getSettings() {
-        if (logger.isInfoEnabled()) {
-            logger.info("Accessing the settings");
-        }
+
+        logger.info("Accessing the settings");
         Settings settings = new Settings();
         settings.load(this.configuration);
         return settings;
@@ -83,9 +82,8 @@ public class SettingsConfiguration {
      */
     @RequestMapping(method = RequestMethod.POST)
     public String update(@Valid final Settings settings, final BindingResult result) throws ConfigurationException {
-        if (logger.isInfoEnabled()) {
-            logger.info("Updating the settings");
-        }
+
+        logger.info("Updating the settings");
         if (result.hasErrors()) {
             logger.warn("Validation errors updating the settings");
             return "play/configure";

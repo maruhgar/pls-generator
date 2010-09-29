@@ -76,9 +76,7 @@ public class ContentProvider {
      */
     public Map<String, List<ContentModel>> getContent(final String folder) {
 
-        if (logger.isInfoEnabled()) {
-            logger.info("Get content for " + folder);
-        }
+        logger.info("Get content for {}", folder);
 
         int rootFolderLength = this.rootFolder.length();
 
@@ -92,9 +90,8 @@ public class ContentProvider {
             parentFolder = this.rootFolder + folder;
         }
 
-        if (logger.isInfoEnabled()) {
-            logger.info("Parent folder is " + parentFolder);
-        }
+
+        logger.info("Parent folder is {}", parentFolder);
 
         File parent = new File(parentFolder);
 
@@ -149,9 +146,8 @@ public class ContentProvider {
      */
     public Collection<String> getAllFileNames(final String folder) {
 
-        if (logger.isInfoEnabled()) {
-            logger.info("Get all media files in " + folder);
-        }
+
+        logger.info("Get all media files in {}", folder);
 
         Collection<String> files = new ArrayList<String>();
 

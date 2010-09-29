@@ -67,9 +67,9 @@ public class MediaBrowser {
      */
     @RequestMapping(method = RequestMethod.GET)
     public final ModelAndView listContents(@RequestParam(value = "folder", required = false) final String folder) {
-        if (logger.isInfoEnabled()) {
-            logger.info("Listing contents of " + folder);
-        }
+
+        logger.info("Listing contents of {}", folder);
+
         ModelAndView mav = new ModelAndView();
         Map<String, List<ContentModel>> contents = this.contentProvider.getContent(folder);
         mav.setViewName("listFiles");

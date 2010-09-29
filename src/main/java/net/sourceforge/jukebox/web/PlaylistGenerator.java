@@ -84,9 +84,8 @@ public class PlaylistGenerator {
     @RequestMapping(method = RequestMethod.POST)
     public final ResponseEntity<byte[]> listContents(@RequestParam(value = "mp3List", required = false) final String[] files,
             @RequestParam(value = "dirList", required = false) final String[] folders) throws Exception {
-        if (logger.isInfoEnabled()) {
-            logger.info("Generating playlist");
-        }
+
+        logger.info("Generating playlist");
         HttpHeaders headers = new HttpHeaders();
         headers.add("Content-type", "audio/x-scpls");
         headers.add("Content-Disposition", "filename=playlist.pls");
