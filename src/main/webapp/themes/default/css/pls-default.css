@@ -1,0 +1,31 @@
+body {
+    background-color: #ffffff;
+    color: #000000;
+    font: 76% Arial, Helvetica, Verdana, sans-serif
+}
+
+.header {
+    height:25px;
+    background-color:#0000af;
+    padding-top:5px;
+    color:white;
+    text-align:center;
+    font-weight:bold
+}
+
+.footer {
+    height:20px;
+    padding-top:2px;
+    text-align:center;
+    background-color:#0000af;
+    color:white
+}
+
+.folder {
+    float:left;
+    width:265px
+}
+
+.contents {
+    margin-left:275px
+}

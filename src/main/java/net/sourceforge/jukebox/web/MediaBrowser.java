@@ -72,7 +72,7 @@ public class MediaBrowser {
 
         ModelAndView mav = new ModelAndView();
         Map<String, List<ContentModel>> contents = this.contentProvider.getContent(folder);
-        mav.setViewName("listFiles");
+        mav.setViewName("browse");
         mav.addObject("dir", contents.get("dir"));
         mav.addObject("files", contents.get("files"));
         return mav;

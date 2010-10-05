@@ -29,6 +29,7 @@
         <property name="basenames">
             <list>
                 <value>classpath:application</value>
+                <value>classpath:net/sourceforge/jukebox/web/messages</value>
             </list>
         </property>
     </bean>
