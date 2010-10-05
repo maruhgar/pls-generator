@@ -6,24 +6,21 @@
 
 <pls:page title="pls.title">
     <form method="POST" action="generate">
-        <table cellSpacing=0 cellPadding=0 width="100%" border=1>
+        <div class="folder">
+            <c:forEach items="${dir}" var="items">
+                <div class="item">
+                    <a href="<c:url value="/play/browse?folder=${items.absoluteFileName}"/>">
+                        <img src="<c:url value="${images}/dir.gif"/>">&nbsp;${items.displayName}
+                        <c:if test="${items.recentUpdate}" >
+                            <span style="color:red;text-decoration:blink">New!</span>
+                        </c:if>
+                    </a>
+                </div>
+            </c:forEach>
+        </div>
+        <div class="contents">
+        <table>
             <tr>
-                <td width="25%" valign=top>
-                    <table>
-                        <c:forEach items="${dir}" var="items">
-                            <tr>
-                                <td>
-                                    <a href="<c:url value="/play/browse?folder=${items.absoluteFileName}"/>">
-                                        <img src="<c:url value="${images}/dir.gif"/>">&nbsp;${items.displayName}
-                                        <c:if test="${items.recentUpdate}" >
-                                            <span style="color:red;text-decoration:blink">New!</span>
-                                        </c:if>
-                                    </a>
-                                </td>
-                            </tr>
-                        </c:forEach>
-                    </table>
-                </td>
                 <td valign="top">
                     <table border=1>
 
@@ -70,5 +67,6 @@
                 <td colspan="2" bgColor=aquamarine></td>
             </tr>
         </table>
+        </div>
     </form>
 </pls:page>
