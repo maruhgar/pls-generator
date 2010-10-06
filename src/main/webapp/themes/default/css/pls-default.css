@@ -1,8 +1,8 @@
 body {
-    height:100%;
+    height: 100%;
     background-color: #ffffff;
     color: #000000;
-    margin:0;
+    margin: 0;
     font: 76% Arial, Helvetica, Verdana, sans-serif;
 }
 
@@ -14,45 +14,45 @@ body {
 
 .header {
     margin: 0 auto;
-    height:25px;
-    background-color:#0000af;
-    padding-top:5px;
-    color:white;
-    text-align:center;
-    font-weight:bold
+    height: 25px;
+    background-color: #0000af;
+    padding-top: 5px;
+    color: white;
+    text-align: center;
+    font-weight: bold
 }
 
 .footer {
-    height:20px;
-    padding-top:2px;
-    text-align:center;
-    background-color:#0000af;
-    color:white
+    height: 20px;
+    padding-top: 2px;
+    text-align: center;
+    background-color: #0000af;
+    color: white
 }
 
 .spacer {
-    height:10px
+    height: 10px
 }
 
 .folder {
-    float:left;
-    width:265px
+    float: left;
+    width: 265px
 }
 
 .contents {
-    margin-left:275px
+    margin-left: 275px
 }
 
 .item {
-    font-size:x-small;
+    font-size: x-small;
 }
 
 #push {
-    height:20px;
+    height: 20px;
 }
 
 .errors {
-    color:red;
+    color: red;
 }
 
 form label {
@@ -62,7 +62,7 @@ form label {
 }
 
 form fieldset {
-    border:0;
+    border: 0;
 }
 
 form fieldset li {
@@ -71,6 +71,14 @@ form fieldset li {
 }
 
 .item span {
-    color:red;
-    text-decoration:blink
+    color: red;
+    text-decoration: blink
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:link, a:visited {
+    text-decoration: none;
 }
