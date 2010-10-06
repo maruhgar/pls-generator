@@ -13,7 +13,7 @@
                     <a href="<c:url value="/play/browse?folder=${items.absoluteFileName}"/>">
                         <img src="<c:url value="${images}/dir.gif"/>">&nbsp;${items.displayName}
                         <c:if test="${items.recentUpdate}" >
-                            <span style="color:red;text-decoration:blink"><fmt:message key="pls.browse.new"/></span>
+                            <span><fmt:message key="pls.browse.new"/></span>
                         </c:if>
                     </a>
                 </div>
@@ -33,7 +33,7 @@
                         <input type="checkbox" name="dirList" value="${items.absoluteFileName}"></input>
                         <img src="<c:url value="${images}/dir.gif"/>">&nbsp;${items.displayName}
                         <c:if test="${items.recentUpdate}" >
-                            <span style="color:red;text-decoration:blink"><fmt:message key="pls.browse.new"/></span>
+                            <span><fmt:message key="pls.browse.new"/></span>
                         </c:if>
                     </div>
                 </c:forEach>
@@ -42,7 +42,7 @@
                         <input type="checkbox" name="mp3List" value="${items.absoluteFileName}"></input>
                         <img src="<c:url value="${images}/mp3.jpg"/>" height="15" width="15">&nbsp;${items.displayName}
                         <c:if test="${items.recentUpdate}" >
-                            <span style="color:red;text-decoration:blink"><fmt:message key="pls.browse.new"/></span>
+                            <span><fmt:message key="pls.browse.new"/></span>
                         </c:if>
                     </div>
                 </c:forEach>

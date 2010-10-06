@@ -69,3 +69,8 @@ form fieldset li {
     list-style-type: none;
     margin: 0 0 1em 10em;
 }
+
+.item span {
+    color:red;
+    text-decoration:blink
+}
