@@ -19,54 +19,34 @@
             </c:forEach>
         </div>
         <div class="contents">
-        <table>
-            <tr>
-                <td valign="top">
-                    <table border=1>
-
-                        <c:if test="${empty files && empty dir}">
-                            <strong>No files found. Please select another Directory</strong>
+            <c:if test="${empty files && empty dir}">
+                <strong>No files found. Please select another Directory</strong>
+            </c:if>
+            <c:if test="${!empty files || !empty dir}">
+                <div class="item">
+                    <input type="checkbox" name="all" value="Y" onclick="toggleCheckboxes(this);"></input>
+                    All&nbsp;Name
+                </div>
+                <c:forEach items="${dir}" var="items">
+                    <div class="item">
+                        <input type="checkbox" name="dirList" value="${items.absoluteFileName}"></input>
+                        <img src="<c:url value="${images}/dir.gif"/>">&nbsp;${items.displayName}
+                        <c:if test="${items.recentUpdate}" >
+                            <span style="color:red;text-decoration:blink">New!</span>
                         </c:if>
-                        <c:if test="${!empty files || !empty dir}">
-                            <tr>
-                                <th>Name</th>
-                                <th>All&nbsp;<INPUT type="checkbox" name="all" value="Y" onclick="toggleCheckboxes(this);"></th>
-                            </tr>
-                            <c:forEach items="${dir}" var="items">
-                                <tr>
-                                    <td><img src="<c:url value="${images}/dir.gif"/>">&nbsp;${items.displayName}
-                                        <c:if test="${items.recentUpdate}" >
-                                            <span style="color:red;text-decoration:blink">New!</span>
-                                        </c:if>
-                                    </td>
-                                    <td><input type="checkbox" name="dirList" value="${items.absoluteFileName}"></td>
-                                </tr>
-                            </c:forEach>
-                            <c:forEach items="${files}" var="items">
-                                <tr>
-                                    <td ><img src="<c:url value="${images}/mp3.jpg"/>" height="15" width="15">&nbsp;${items.displayName}
-                                        <c:if test="${items.recentUpdate}" >
-                                            <span style="color:red;text-decoration:blink">New!</span>
-                                        </c:if>
-                                    </td>
-                                    <td><input type="checkbox" name="mp3List" value="${items.absoluteFileName}"></input
-                                    </td>
-                                </tr>
-                            </c:forEach>
-                            <tr>
-                                <td colspan="2" align="right" >
-                                    <input type="submit" name="play" value="Play" onclick="return(checkSelected(this));"></input>
-                                </td>
-                            </tr>
+                    </div>
+                </c:forEach>
+                <c:forEach items="${files}" var="items">
+                    <div class="item">
+                        <input type="checkbox" name="mp3List" value="${items.absoluteFileName}"></input>
+                        <img src="<c:url value="${images}/mp3.jpg"/>" height="15" width="15">&nbsp;${items.displayName}
+                        <c:if test="${items.recentUpdate}" >
+                            <span style="color:red;text-decoration:blink">New!</span>
                         </c:if>
-
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2" bgColor=aquamarine></td>
-            </tr>
-        </table>
+                    </div>
+                </c:forEach>
+                <input type="submit" name="play" value="Play" onclick="return(checkSelected(this));"></input>
+            </c:if>
         </div>
     </form>
 </pls:page>
