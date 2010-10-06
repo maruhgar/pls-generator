@@ -12,7 +12,6 @@
 
 <spring:theme var="css" code="css"/>
 <c:if test="${not empty css}">
-    <link rel="stylesheet" type="text/css" href="<c:url value="${css}/mail_blue_all.css"/>">
     <link rel="stylesheet" type="text/css" href="<c:url value="${css}/pls-default.css"/>">
 </c:if>
 <spring:theme var="images" code="images"/>

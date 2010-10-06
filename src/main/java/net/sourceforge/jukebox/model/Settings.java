@@ -52,7 +52,7 @@ public class Settings {
      * Folder holding the media contents.
      */
     @NotNull
-    @Size(min = 1, message = "Cannot be empty")
+    @Size(min = 1, message = "cannot be empty")
     private String contentFolder;
 
     /**
