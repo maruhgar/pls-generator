@@ -19,9 +19,16 @@ import static org.testng.Assert.assertEquals;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Set;
+
+import javax.validation.ConstraintViolation;
+import javax.validation.Validation;
+import javax.validation.Validator;
+import javax.validation.ValidatorFactory;
 
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 /**
@@ -34,6 +41,19 @@ public class SettingsTest {
      */
     private static final int MODIFIED_DAYS = 10;
 
+    /**
+     * Validator object.
+     */
+    private Validator validator;
+
+    /**
+     * Initialize the validator.
+     */
+    @BeforeClass
+    public void SetUp() {
+        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+        validator = factory.getValidator();
+    }
     /**
      * Tests the <code>load</code> and <code>save</code> methods.
      * @throws IOException IOException
@@ -55,5 +75,46 @@ public class SettingsTest {
         savedSettings.load(configuration);
 
         assertEquals(settings, savedSettings);
+    }
+
+    /**
+     * Tests the validator when content folder is null.
+     */
+    @Test
+    public void testContentFolderIsNull() {
+        Settings settings = new Settings();
+        settings.setPlayerUrl("http://localhost/play");
+        settings.setModifiedDays(0);
+        Set<ConstraintViolation<Settings>> constraintViolations = validator.validate(settings);
+        assertEquals(constraintViolations.size(), 1);
+        assertEquals(constraintViolations.iterator().next().getMessage(), "may not be null");
+    }
+
+    /**
+     * Tests the validator when content folder is empty
+     */
+    @Test
+    public void testContentFolderIsEmpty() {
+        Settings settings = new Settings();
+        settings.setContentFolder("");
+        settings.setPlayerUrl("http://localhost/play");
+        settings.setModifiedDays(0);
+        Set<ConstraintViolation<Settings>> constraintViolations = validator.validate(settings);
+        assertEquals(constraintViolations.size(), 1);
+        assertEquals(constraintViolations.iterator().next().getMessage(), "Cannot be empty");
+    }
+
+    /**
+     * Tests the validator when modified days is negative.
+     */
+    @Test
+    public void testModifiedDaysIsNegative() {
+        Settings settings = new Settings();
+        settings.setContentFolder("/var/lib/media");
+        settings.setPlayerUrl("http://localhost/play");
+        settings.setModifiedDays(-1);
+        Set<ConstraintViolation<Settings>> constraintViolations = validator.validate(settings);
+        assertEquals(constraintViolations.size(), 1);
+        assertEquals(constraintViolations.iterator().next().getMessage(), "must be greater than or equal to 0");
     }
 }

@@ -15,6 +15,9 @@
  */
 package net.sourceforge.jukebox.model;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.apache.commons.configuration.ConfigurationException;
@@ -49,7 +52,8 @@ public class Settings {
     /**
      * Folder holding the media contents.
      */
-    @Size(min = 1)
+    @NotNull
+    @Size(min = 1, message = "Cannot be empty")
     private String contentFolder;
 
     /**
@@ -60,6 +64,7 @@ public class Settings {
     /**
      * Number of days since specified media was updated.
      */
+    @Min(0)
     private int modifiedDays;
 
     /**

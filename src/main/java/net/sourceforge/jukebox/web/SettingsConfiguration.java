@@ -86,7 +86,7 @@ public class SettingsConfiguration {
         logger.info("Updating the settings");
         if (result.hasErrors()) {
             logger.warn("Validation errors updating the settings");
-            return "play/configure";
+            return "configure";
         }
         settings.save(configuration);
         return "redirect:/play/browse";
