@@ -19,3 +19,9 @@
 <div class="header">
     <fmt:message key="pls.header"/>
 </div>
+<div class="menu">
+    <ul>
+        <li><a href="<c:url value="/"/>">Home</a>
+        <li><a href="<c:url value="/play/configure"/>">Admin</a>
+    </ul>
+</div>

@@ -7,7 +7,7 @@ body {
 }
 
 .body {
-    min-height: 90%;
+    min-height: 86%;
     height: auto !important;
     margin: 0 auto -20px;
 }
@@ -28,6 +28,19 @@ body {
     text-align: center;
     background-color: #0000af;
     color: white
+}
+
+.menu {
+    border: thin solid;
+    height: 30px
+}
+
+.menu li {
+    list-style-type: none;
+    padding-bottom: 5px;
+    display: block;
+    width: 50px;
+    float: left
 }
 
 .spacer {
