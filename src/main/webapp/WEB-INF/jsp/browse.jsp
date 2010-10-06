@@ -21,7 +21,8 @@
         </div>
         <div class="contents">
             <c:if test="${empty files && empty dir}">
-                <strong>No files found. Please select another Directory</strong>
+                <div class="errors">No files found. Please select another Directory
+                </div>
             </c:if>
             <c:if test="${!empty files || !empty dir}">
                 <div class="item">
