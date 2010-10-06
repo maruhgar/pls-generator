@@ -39,13 +39,17 @@ import org.testng.annotations.Test;
 public class ContentProviderTest {
 
     /**
-     * Root folder.
-     */
-    private static final String ROOT_FOLDER = System.getProperty("java.io.tmpdir");
-    /**
-     * Constant test folder.
+     * Test folder.
      */
     private static final String TEST_FOLDER = "folder";
+    /**
+     * Root folder.
+     */
+    private static final String ROOT_FOLDER = System.getProperty("java.io.tmpdir") + File.separator + TEST_FOLDER;
+    /**
+     * Subfolder.
+     */
+    private static final String SUB_FOLDER = "subFolder";
     /**
      * Test filename.
      */
@@ -61,14 +65,17 @@ public class ContentProviderTest {
      */
     @BeforeClass
     public final void setUp() throws IOException {
-        File mediaFile = File.createTempFile("dummy", ".mp3", new File(ROOT_FOLDER));
+        File contentFolder = new File(ROOT_FOLDER);
+        contentFolder.mkdir();
+        contentFolder.deleteOnExit();
+        File mediaFile = File.createTempFile("dummy", ".mp3", contentFolder);
         mediaFile.deleteOnExit();
         media1 = mediaFile.getName();
-        File contentFolder = new File(ROOT_FOLDER, TEST_FOLDER);
-        contentFolder.mkdir();
-        mediaFile = File.createTempFile("dummy1", ".mp3", contentFolder);
+        File subfolder = new File(ROOT_FOLDER, SUB_FOLDER);
+        subfolder.mkdir();
+        subfolder.deleteOnExit();
+        mediaFile = File.createTempFile("dummy1", ".mp3", subfolder);
         media2 = mediaFile.getName();
-        contentFolder.deleteOnExit();
         mediaFile.deleteOnExit();
     }
 
@@ -102,7 +109,7 @@ public class ContentProviderTest {
         ContentProvider provider = new ContentProvider();
         provider.setRootFolder(ROOT_FOLDER);
         provider.setModifiedDays(1);
-        Map<String, List<ContentModel>> contents = provider.getContent(TEST_FOLDER);
+        Map<String, List<ContentModel>> contents = provider.getContent(File.separator + SUB_FOLDER);
         assertNotNull(contents);
         List<ContentModel> files = contents.get("files");
         assertNotNull(files);
@@ -123,7 +130,7 @@ public class ContentProviderTest {
         ContentProvider provider = new ContentProvider();
         provider.setRootFolder(ROOT_FOLDER);
         provider.setModifiedDays(1);
-        Collection<String> mediaFiles = provider.getAllFileNames(TEST_FOLDER);
+        Collection<String> mediaFiles = provider.getAllFileNames(File.separator + SUB_FOLDER);
         assertEquals(mediaFiles.size(), 1);
         Iterator<String> iterator = mediaFiles.iterator();
         while (iterator.hasNext()) {
