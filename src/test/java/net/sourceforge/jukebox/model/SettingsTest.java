@@ -50,7 +50,7 @@ public class SettingsTest {
      * Initialize the validator.
      */
     @BeforeClass
-    public void SetUp() {
+    public final void setUp() {
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         validator = factory.getValidator();
     }
@@ -81,7 +81,7 @@ public class SettingsTest {
      * Tests the validator when content folder is null.
      */
     @Test
-    public void testContentFolderIsNull() {
+    public final void testContentFolderIsNull() {
         Settings settings = new Settings();
         settings.setPlayerUrl("http://localhost/play");
         settings.setModifiedDays(0);
@@ -91,10 +91,10 @@ public class SettingsTest {
     }
 
     /**
-     * Tests the validator when content folder is empty
+     * Tests the validator when content folder is empty.
      */
     @Test
-    public void testContentFolderIsEmpty() {
+    public final void testContentFolderIsEmpty() {
         Settings settings = new Settings();
         settings.setContentFolder("");
         settings.setPlayerUrl("http://localhost/play");
@@ -108,7 +108,7 @@ public class SettingsTest {
      * Tests the validator when modified days is negative.
      */
     @Test
-    public void testModifiedDaysIsNegative() {
+    public final void testModifiedDaysIsNegative() {
         Settings settings = new Settings();
         settings.setContentFolder("/var/lib/media");
         settings.setPlayerUrl("http://localhost/play");
