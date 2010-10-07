@@ -107,3 +107,8 @@ a:link, a:visited {
     text-decoration: none;
     color:white
 }
+
+.error-page {
+    width: 550px;
+    margin: 10px;
+}

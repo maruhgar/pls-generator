@@ -104,3 +104,8 @@ a:hover {
 a:link, a:visited {
     text-decoration: none;
 }
+
+.error-page {
+    width: 550px;
+    margin: 10px;
+}
