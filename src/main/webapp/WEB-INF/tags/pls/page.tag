@@ -10,6 +10,7 @@
         <pls:header/>
     </head>
     <body>
+        <pls:head/>
         <div class="spacer"></div>
         <div class="body">
             <jsp:doBody/>

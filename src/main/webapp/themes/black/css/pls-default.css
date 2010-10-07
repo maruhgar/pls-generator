@@ -17,9 +17,18 @@ body {
     height: 25px;
     background-color: #0000af;
     padding-top: 5px;
-    color: white;
+}
+
+.header .header-title {
     text-align: center;
+    color: white;
     font-weight: bold
+}
+
+.header .theme {
+    width: 150px;
+    margin-right: 10px;
+    float: left;
 }
 
 .footer {

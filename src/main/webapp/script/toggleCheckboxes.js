@@ -17,7 +17,7 @@
 function toggleCheckboxes(chkBx){
     var f = chkBx.form;
     var check = chkBx.checked;
-    for(var i = 0;i<f.elements.length;i++){
+    for(var i = 0; i < f.elements.length; i++){
         if(f.elements[i].type == 'checkbox'){
             f.elements[i].checked = check;
         }
@@ -25,94 +25,21 @@ function toggleCheckboxes(chkBx){
 }
 
 function checkSelected(value){
-var form = value.form;
-var status=false;
-      for(var i = 0;i<form.elements.length;i++){
-
-            if(form.elements[i].type == 'checkbox'){
-
-                  if(form.elements[i].checked){
-
-                        status=true;
-
-                        return true;
-
-                  }
-
-            }
-
-      }
-
-      if(status==false){
-
-            alert("Please Select Song");
-             return false;
-      }
-
-}
-
-function toggleCheckboxesDiv(chkBx){
-    var f = chkBx.form;
-    var check = chkBx.checked;
-    for(var i = 0;i<f.elements.length;i++){
-        if(f.elements[i].type == 'checkbox'){
-            f.elements[i].checked = check;
-        }
-    }
-}
-
-function unToggleCheckbox(chkBx,gropChkb,chkName){
-    var f = chkBx.form; // form
-    var check = chkBx.checked;
-    var flag=true;
-    if ("undefined" == typeof(f.elements[chkName].length) ) {
-        if(!f.elements[chkName].checked){
-            gropChkb.checked=false;
-            flag=false;
-        }
-    }else{
-        for(var i = 0;i<f.elements[chkName].length;i++){
-            if(!(f.elements[chkName][i].checked)){
-                gropChkb.checked=false;
-                flag=false;
-                break;
+    var form = value.form;
+    var status = false;
+    for (var i = 0; i < form.elements.length; i++){
+        if (form.elements[i].type == 'checkbox'){
+            if (form.elements[i].checked){
+                status = true;
+                return true;
             }
         }
     }
-
-    if(flag){
-        gropChkb.checked=true;
+    if (status == false){
+        alert("Please Select Song");
+        return false;
     }
 }
 
-function changeTableBackground(chk) {
-
-tab = document.getElementById("table");
-if(chk.checked){
-    for(var i=1;i<tab.rows.length;i++)
-    for(var j=0;j<tab.rows[i].cells.length;j++)
-    if(tab.rows[i].cells[tab.rows[i].cells.length-1].innerHTML.indexOf("Checkbox")>-1)
-    tab.rows[i].cells[j].style.background="#99ff99";
- }else{
- var flag=1;
- for(var i=1;i<tab.rows.length;i=i+1){
-    if(flag==1){
-    for(var j=0;j<tab.rows[i].cells.length;j++)
-    if(tab.rows[i].cells[tab.rows[i].cells.length-1].innerHTML.indexOf("Checkbox")>-1)
-        tab.rows[i].cells[j].style.background="#DDDDDD";
-        flag=0;
-        continue;
-    }
-    if(flag==0){
-    for(var j=0;j<tab.rows[i].cells.length;j++)
-    if(tab.rows[i].cells[tab.rows[i].cells.length-1].innerHTML.indexOf("Checkbox")>-1)
-        tab.rows[i].cells[j].style.background="#FFFFFF";
-        flag=1;
-        continue;
-    }
-    }
- }
-
-}
 
 

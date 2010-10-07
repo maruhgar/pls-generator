@@ -23,8 +23,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ThemeResolver;
 
 /**
@@ -59,8 +60,8 @@ public class ThemeConfiguration {
      * @param response response
      * @return success
      */
-    @RequestMapping(value = "/{theme}")
-    public final String setTheme(@PathVariable final String theme, final HttpServletRequest request, final HttpServletResponse response) {
+    @RequestMapping(method = RequestMethod.POST)
+    public final String setTheme(@RequestParam("theme") final String theme, final HttpServletRequest request, final HttpServletResponse response) {
         logger.info("Changing the theme to " + theme);
         this.themeResolver.setThemeName(request, response, theme);
         return "redirect:/play/browse";

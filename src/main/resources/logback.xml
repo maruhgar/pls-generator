@@ -4,7 +4,7 @@
 
     <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%-5level %message%n</pattern>
+            <pattern>%date %-5level %message%n</pattern>
         </encoder>
     </appender>
 
