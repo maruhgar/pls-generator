@@ -44,7 +44,7 @@ public class SettingsConfiguration {
     /**
      * Logger object.
      */
-    private static final Logger logger = LoggerFactory.getLogger("SettingsConfiguration");
+    private static final Logger logger = LoggerFactory.getLogger(SettingsConfiguration.class);
 
     /**
      * Application configuration.

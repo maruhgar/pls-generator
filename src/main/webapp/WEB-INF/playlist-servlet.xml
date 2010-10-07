@@ -42,8 +42,8 @@
 
     <!-- Themes -->
 
-    <bean id="themeResolver" class="org.springframework.web.servlet.theme.SessionThemeResolver">
-        <property name="defaultThemeName" value="default"/>
+    <bean id="themeResolver" class="org.springframework.web.servlet.theme.CookieThemeResolver">
+        <property name="defaultThemeName" value="black"/>
     </bean>
 
     <bean id="themeSource" class="org.springframework.ui.context.support.ResourceBundleThemeSource">

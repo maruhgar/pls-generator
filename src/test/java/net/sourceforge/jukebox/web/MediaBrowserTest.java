@@ -15,22 +15,22 @@
  */
 package net.sourceforge.jukebox.web;
 
+import static org.mockito.Matchers.anyString;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import net.sourceforge.jukebox.model.ContentModel;
+import net.sourceforge.jukebox.service.ContentProvider;
+
 import org.springframework.test.web.ModelAndViewAssert;
 import org.springframework.web.servlet.ModelAndView;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-import static org.mockito.Matchers.anyString;
-
-import net.sourceforge.jukebox.model.ContentModel;
-import net.sourceforge.jukebox.service.ContentProvider;
 
 /**
  * Tests {@link MediaBrowser}.

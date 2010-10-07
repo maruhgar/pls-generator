@@ -1,0 +1,100 @@
+body {
+    height: 100%;
+    background-color: #000000;
+    color: #ffffff;
+    margin: 0;
+    font: 76% Arial, Helvetica, Verdana, sans-serif;
+}
+
+.body {
+    min-height: 86%;
+    height: auto !important;
+    margin: 0 auto -20px;
+}
+
+.header {
+    margin: 0 auto;
+    height: 25px;
+    background-color: #0000af;
+    padding-top: 5px;
+    color: white;
+    text-align: center;
+    font-weight: bold
+}
+
+.footer {
+    height: 20px;
+    padding-top: 2px;
+    text-align: center;
+    background-color: #0000af;
+    color: white
+}
+
+.menu {
+    border: thin solid;
+    height: 30px
+}
+
+.menu li {
+    list-style-type: none;
+    padding-bottom: 5px;
+    display: block;
+    width: 50px;
+    float: left;
+    color: white
+}
+
+.spacer {
+    height: 10px
+}
+
+.folder {
+    float: left;
+    width: 265px
+}
+
+.contents {
+    margin-left: 275px
+}
+
+.item {
+    font-size: x-small;
+}
+
+#push {
+    height: 20px;
+}
+
+.errors {
+    color: red;
+}
+
+form label {
+    color: white;
+    padding-right: 3px;
+    font-weight: bold;
+}
+
+form fieldset {
+    border: 0;
+}
+
+form fieldset li {
+    list-style-type: none;
+    margin: 0 0 1em 10em;
+}
+
+.item span {
+    color: red;
+    text-decoration: blink
+}
+
+a:hover {
+    text-decoration: underline;
+    color:white
+}
+
+a:link, a:visited {
+    text-decoration: none;
+    color:white
+}

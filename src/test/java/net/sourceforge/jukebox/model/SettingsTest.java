@@ -101,7 +101,7 @@ public class SettingsTest {
         settings.setModifiedDays(0);
         Set<ConstraintViolation<Settings>> constraintViolations = validator.validate(settings);
         assertEquals(constraintViolations.size(), 1);
-        assertEquals(constraintViolations.iterator().next().getMessage(), "Cannot be empty");
+        assertEquals(constraintViolations.iterator().next().getMessage(), "cannot be empty");
     }
 
     /**

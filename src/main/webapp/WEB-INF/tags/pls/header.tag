@@ -21,7 +21,7 @@
 </div>
 <div class="menu">
     <ul>
-        <li><a href="<c:url value="/"/>">Home</a>
-        <li><a href="<c:url value="/play/configure"/>">Admin</a>
+        <li><a href="<c:url value="/"/>"><fmt:message key="pls.menu.home"/></a>
+        <li><a href="<c:url value="/play/configure"/>"><fmt:message key="pls.menu.configure"/></a>
     </ul>
 </div>
