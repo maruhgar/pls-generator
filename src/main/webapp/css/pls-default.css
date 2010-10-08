@@ -1,42 +1,40 @@
 body {
-    height: 100%;
-    background-color: #000000;
-    color: #ffffff;
-    margin: 0;
     font: 76% Arial, Helvetica, Verdana, sans-serif;
+    height: 100%;
+    margin: 0;
 }
 
 .body {
-    min-height: 86%;
     height: auto !important;
     margin: 0 auto -20px;
+    min-height: 86%;
 }
 
 .header {
-    margin: 0 auto;
-    height: 25px;
     background-color: #0000af;
+    height: 25px;
+    margin: 0 auto;
     padding-top: 5px;
 }
 
 .header .header-title {
-    text-align: center;
     color: white;
-    font-weight: bold
+    font-weight: bold;
+    text-align: center;
 }
 
 .header .theme {
-    width: 150px;
-    margin-right: 10px;
     float: left;
+    margin-right: 10px;
+    width: 150px;
 }
 
 .footer {
+    background-color: #0000af;
+    color: white;
     height: 20px;
     padding-top: 2px;
     text-align: center;
-    background-color: #0000af;
-    color: white
 }
 
 .menu {
@@ -45,12 +43,11 @@ body {
 }
 
 .menu li {
+    display: block;
+    float: left;
     list-style-type: none;
     padding-bottom: 5px;
-    display: block;
     width: 50px;
-    float: left;
-    color: white
 }
 
 .spacer {
@@ -79,9 +76,8 @@ body {
 }
 
 form label {
-    color: white;
-    padding-right: 3px;
     font-weight: bold;
+    padding-right: 3px;
 }
 
 form fieldset {
@@ -98,17 +94,7 @@ form fieldset li {
     text-decoration: blink
 }
 
-a:hover {
-    text-decoration: underline;
-    color:white
-}
-
-a:link, a:visited {
-    text-decoration: none;
-    color:white
-}
-
 .error-page {
-    width: 550px;
     margin: 10px;
+    width: 550px;
 }

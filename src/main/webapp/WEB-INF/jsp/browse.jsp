@@ -14,7 +14,7 @@
             <c:forEach items="${dir}" var="items">
                 <div class="item">
                     <a href="<c:url value="/play/browse?folder=${items.absoluteFileName}"/>">
-                        <img src="<c:url value="${images}/dir.gif"/>" alt="Folder"/>&nbsp;${items.displayName}
+                        <img src="<c:url value="/images/dir.gif"/>" alt="Folder"/>&nbsp;${items.displayName}
                         <c:if test="${items.recentUpdate}" >
                             <span><fmt:message key="pls.browse.new"/></span>
                         </c:if>
@@ -35,7 +35,7 @@
                 <c:forEach items="${dir}" var="items">
                     <div class="item">
                         <input type="checkbox" name="dirList" value="${items.absoluteFileName}"></input>
-                        <img src="<c:url value="${images}/dir.gif"/>" alt="Folder"/>&nbsp;${items.displayName}
+                        <img src="<c:url value="/images/dir.gif"/>" alt="Folder"/>&nbsp;${items.displayName}
                         <c:if test="${items.recentUpdate}" >
                             <span><fmt:message key="pls.browse.new"/></span>
                         </c:if>
@@ -44,7 +44,7 @@
                 <c:forEach items="${files}" var="items">
                     <div class="item">
                         <input type="checkbox" name="mp3List" value="${items.absoluteFileName}"></input>
-                        <img src="<c:url value="${images}/mp3.jpg"/>" alt="Media" height="15" width="15"/>&nbsp;${items.displayName}
+                        <img src="<c:url value="/images/mp3.jpg"/>" alt="Media" height="15" width="15"/>&nbsp;${items.displayName}
                         <c:if test="${items.recentUpdate}" >
                             <span><fmt:message key="pls.browse.new"/></span>
                         </c:if>

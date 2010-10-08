@@ -8,12 +8,12 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 
 <script type="text/javascript" src="<c:url value="/script/toggleCheckboxes.js"/>"></script>
+<link rel="stylesheet" type="text/css" href="<c:url value="/css/pls-default.css"/>"/>
 
 <spring:theme var="css" code="css"/>
 
 <c:if test="${not empty css}">
-    <link rel="stylesheet" type="text/css" href="<c:url value="${css}/pls-default.css"/>"/>
+    <link rel="stylesheet" type="text/css" href="<c:url value="${css}/style.css"/>"/>
 </c:if>
-<spring:theme var="images" code="images"/>
 
 

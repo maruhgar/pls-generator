@@ -9,7 +9,7 @@
         <title><fmt:message key="${title}"/></title>
         <pls:header/>
     </head>
-    <body>
+    <body class="text-color background-color">
         <pls:head/>
         <div class="spacer"></div>
         <div class="body">
