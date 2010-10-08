@@ -20,6 +20,6 @@
 <div class="menu">
     <ul>
         <li><a href="<c:url value="/"/>"><fmt:message key="pls.menu.home"/></a></li>
-        <li><a href="<c:url value="/play/configure"/>"><fmt:message key="pls.menu.configure"/></a></li>
+        <li><a href="<c:url value="/play/admin/configure"/>"><fmt:message key="pls.menu.configure"/></a></li>
     </ul>
 </div>

@@ -38,7 +38,7 @@ import org.springframework.web.servlet.ModelAndView;
  * Configure the application settings.
  */
 @Controller
-@RequestMapping("/configure")
+@RequestMapping("/admin/configure")
 public class SettingsConfiguration {
 
     /**
