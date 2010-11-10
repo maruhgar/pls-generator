@@ -28,12 +28,12 @@
             </c:if>
             <c:if test="${!empty files || !empty dir}">
                 <div class="item">
-                    <input type="checkbox" name="all" value="Y" onclick="toggleCheckboxes(this);"></input>
+                    <input type="checkbox" name="all" value="Y" onclick="toggleCheckboxes(this);">
                     All&nbsp;Name
                 </div>
                 <c:forEach items="${dir}" var="items">
                     <div class="item">
-                        <input type="checkbox" name="dirList" value="${items.absoluteFileName}"></input>
+                        <input type="checkbox" name="dirList" value="${items.absoluteFileName}">
                         <img src="<c:url value="/images/dir.gif"/>" alt="Folder"/>&nbsp;${items.displayName}
                         <c:if test="${items.recentUpdate}" >
                             <span><fmt:message key="pls.browse.new"/></span>
@@ -42,14 +42,14 @@
                 </c:forEach>
                 <c:forEach items="${files}" var="items">
                     <div class="item">
-                        <input type="checkbox" name="mp3List" value="${items.absoluteFileName}"></input>
+                        <input type="checkbox" name="mp3List" value="${items.absoluteFileName}">
                         <img src="<c:url value="/images/mp3.jpg"/>" alt="Media" height="15" width="15"/>&nbsp;${items.displayName}
                         <c:if test="${items.recentUpdate}" >
                             <span><fmt:message key="pls.browse.new"/></span>
                         </c:if>
                     </div>
                 </c:forEach>
-                <input type="submit" name="play" value="Play" onclick="return(checkSelected(this));"></input>
+                <input type="submit" name="play" value="Play" onclick="return(checkSelected(this));">
             </c:if>
         </div>
     </form>
