@@ -11,10 +11,10 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <spring.version>3.0.4.RELEASE</spring.version>
-        <spring.security.version>3.0.3.RELEASE</spring.security.version>
-        <slf4j.version>1.6.0</slf4j.version>
-        <logback.version>0.9.24</logback.version>
+        <spring.version>3.0.5.RELEASE</spring.version>
+        <spring.security.version>3.0.4.RELEASE</spring.security.version>
+        <slf4j.version>1.6.1</slf4j.version>
+        <logback.version>0.9.26</logback.version>
     </properties>
 
     <name>Playlist Generator</name>
@@ -55,7 +55,7 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
-            <version>4.0.2.GA</version>
+            <version>4.1.0.Final</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -134,7 +134,8 @@
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>5.14</version>
+            <version>5.14.2</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
