@@ -8,7 +8,8 @@
 <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 
 <script type="text/javascript" src="<c:url value="/script/toggleCheckboxes.js"/>"></script>
-<link rel="stylesheet" type="text/css" href="<c:url value="/css/pls-default.css"/>"/>
+
+<link rel="stylesheet" href="<c:url value="/css/pls-default.css"/>"/>
 
 <spring:theme var="css" code="css"/>
 

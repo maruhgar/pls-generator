@@ -1,7 +1,7 @@
 <%@ taglib prefix="fmt"    uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<div class="header">
+<div class="heading">
 
     <form method="post" action="<c:url value="/play/theme"/>">
         <div class="theme">
@@ -13,13 +13,15 @@
         </div>
     </form>
 
-    <div class="header-title">
+    <header>
         <fmt:message key="pls.header"/>
-    </div>
+    </header>
+
 </div>
-<div class="menu">
+
+<nav>
     <ul>
         <li><a href="<c:url value="/"/>"><fmt:message key="pls.menu.home"/></a></li>
         <li><a href="<c:url value="/play/admin/configure"/>"><fmt:message key="pls.menu.configure"/></a></li>
     </ul>
-</div>
+</nav>

@@ -4,7 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="pls"  tagdir="/WEB-INF/tags/pls" %>
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html lang="en">
     <head>
         <title><fmt:message key="${title}"/></title>
         <pls:header/>

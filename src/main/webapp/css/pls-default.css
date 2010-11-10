@@ -10,26 +10,26 @@ body {
     min-height: 86%;
 }
 
-.header {
+.heading {
     background-color: #0000af;
     height: 25px;
     margin: 0 auto;
     padding-top: 5px;
 }
 
-.header .header-title {
+header {
     color: white;
     font-weight: bold;
     text-align: center;
 }
 
-.header .theme {
+.heading .theme {
     float: left;
     margin-right: 10px;
     width: 150px;
 }
 
-.footer {
+footer {
     background-color: #0000af;
     color: white;
     height: 20px;
@@ -37,12 +37,12 @@ body {
     text-align: center;
 }
 
-.menu {
+nav {
     border: thin solid;
     height: 30px
 }
 
-.menu li {
+nav li {
     display: block;
     float: left;
     list-style-type: none;
