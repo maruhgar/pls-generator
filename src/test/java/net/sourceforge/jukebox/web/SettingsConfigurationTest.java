@@ -46,7 +46,7 @@ public class SettingsConfigurationTest {
     /**
      * Form view.
      */
-    private static final String FORM_VIEW = "configure";
+    private static final String FORM_VIEW = "admin/configure";
     /**
      * Default modified days.
      */
