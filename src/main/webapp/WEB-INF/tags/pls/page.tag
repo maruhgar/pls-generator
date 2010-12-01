@@ -15,7 +15,6 @@
         <div class="body">
             <jsp:doBody/>
         </div>
-        <div id="push"></div>
         <pls:footer/>
     </body>
 </html>

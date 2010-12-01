@@ -13,15 +13,18 @@
         </div>
     </form>
 
-    <header>
-        <fmt:message key="pls.header"/>
-    </header>
-
+    <div class="header-title">
+        <header>
+            <fmt:message key="pls.header"/>
+        </header>
+    </div>
 </div>
 
-<nav>
-    <ul>
-        <li><a href="<c:url value="/"/>"><fmt:message key="pls.menu.home"/></a></li>
-        <li><a href="<c:url value="/play/admin/configure"/>"><fmt:message key="pls.menu.configure"/></a></li>
-    </ul>
-</nav>
+<div class="menu">
+    <nav>
+        <ul>
+            <li><a href="<c:url value="/"/>"><fmt:message key="pls.menu.home"/></a></li>
+            <li><a href="<c:url value="/play/admin/configure"/>"><fmt:message key="pls.menu.configure"/></a></li>
+        </ul>
+    </nav>
+</div>

@@ -5,9 +5,7 @@ body {
 }
 
 .body {
-    height: auto !important;
-    margin: 0 auto -20px;
-    min-height: 86%;
+    padding-bottom:20px;
 }
 
 .heading {
@@ -17,7 +15,7 @@ body {
     padding-top: 5px;
 }
 
-header {
+.heading .header-title {
     color: white;
     font-weight: bold;
     text-align: center;
@@ -29,20 +27,23 @@ header {
     width: 150px;
 }
 
-footer {
+.footer {
     background-color: #0000af;
+    bottom: 0;
     color: white;
     height: 20px;
     padding-top: 2px;
+    position: absolute;
     text-align: center;
+    width: 100%;
 }
 
-nav {
+.menu {
     border: thin solid;
     height: 30px
 }
 
-nav li {
+.menu li {
     display: block;
     float: left;
     list-style-type: none;
@@ -65,10 +66,6 @@ nav li {
 
 .item {
     font-size: x-small;
-}
-
-#push {
-    height: 20px;
 }
 
 .errors {
