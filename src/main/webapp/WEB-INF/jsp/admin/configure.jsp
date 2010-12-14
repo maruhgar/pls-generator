@@ -1,6 +1,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="pls"     tagdir="/WEB-INF/tags/pls" %>
 <%@ taglib prefix="fmt"  uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="pls"  tagdir="/WEB-INF/tags/pls" %>
 
 <pls:page title="pls.configure.title">
     <form:form modelAttribute="settings" method="POST">

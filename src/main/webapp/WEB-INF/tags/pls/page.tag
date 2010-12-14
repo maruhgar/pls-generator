@@ -1,7 +1,7 @@
 <%@ tag body-content="scriptless" %>
 <%@ attribute name="title" required="true" %>
 
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt"  uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="pls"  tagdir="/WEB-INF/tags/pls" %>
 
 <html lang="en">

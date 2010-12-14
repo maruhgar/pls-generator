@@ -1,10 +1,11 @@
 <%@ tag body-content="empty" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<meta name="pragma" content="no-cache"/>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="c"      uri="http://java.sun.com/jsp/jstl/core" %>
+
+<meta name="pragma"        content="no-cache"/>
 <meta name="cache-control" content="no-cache"/>
-<meta name="expires" content="0"/>
+<meta name="expires"       content="0"/>
 <meta charset="utf-8"/>
 
 <script type="text/javascript" src="<c:url value="/script/toggleCheckboxes.js"/>"></script>
