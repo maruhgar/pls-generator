@@ -1,6 +1,7 @@
 apply plugin: 'java'
 apply plugin: 'war'
 apply plugin: 'maven'
+apply plugin: 'jetty'
 
 // Change default directory to target from build
 buildDir = 'target'
