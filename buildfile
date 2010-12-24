@@ -4,14 +4,23 @@ repositories.remote << 'http://10.99.30.70/artifactory/repo'
 
 desc 'Playlist Generator'
 
-COLLECTIONS = 'commons-collections:commons-collections:jar:3.2.1'
-
 LOGBACK = group('logback-classic', 
             'logback-core',
             :under=>'ch.qos.logback', 
             :version=>'0.9.26')
 
-PROVIDED = 'javax.servlet:servlet-api:jar:2.5'
+JAVAX = struct(
+    :jstl       => 'javax.servlet:jstl:jar:1.1.2', 
+    :servletapi => 'javax.servlet:servlet-api:jar:2.5',
+    :validation => 'javax.validation:validation-api:jar:1.0.0.GA'
+)
+
+COMMONS = struct(
+    :collections   => 'commons-collections:commons-collections:jar:3.2.1',
+    :configuration => 'commons-configuration:commons-configuration:jar:1.6',
+    :lang          => 'commons-lang:commons-lang:jar:2.5',
+    :logging       => 'commons-logging:commons-logging:jar:1.1.1'
+)
 
 SLF4JRUNTIME = group('jul-to-slf4j',
                     'jcl-over-slf4j',
@@ -43,7 +52,7 @@ RUNTIME = [LOGBACK,
     SLF4JRUNTIME, 
     SPRINGRUNTIME, 
     SPRINGSECURITYRUNTIME, 
-    COLLECTIONS]
+    COMMONS.collections]
 
 define 'pls' do
 
@@ -52,11 +61,11 @@ define 'pls' do
     project.version = '1.0-SNAPSHOT'
 
     compile.with SPRING,
-        PROVIDED,
-        'commons-configuration:commons-configuration:jar:1.6',
-        'commons-lang:commons-lang:jar:2.5',
-        'javax.servlet:jstl:jar:1.1.2', 
-        'javax.validation:validation-api:jar:1.0.0.GA', 
+        COMMONS.configuration,
+        COMMONS.lang,
+        JAVAX.jstl,
+        JAVAX.validation,
+        JAVAX.servletapi,
         'org.hibernate:hibernate-validator:jar:4.1.0.Final', 
         'org.slf4j:slf4j-api:jar:1.6.1', 
         'org.springframework.security:spring-security-core:jar:3.0.5.RELEASE',
@@ -66,8 +75,8 @@ define 'pls' do
 
     test.with 'org.springframework:spring-asm:jar:3.0.5.RELEASE', 
         'org.springframework:spring-expression:jar:3.0.5.RELEASE', 
-        'commons-logging:commons-logging:jar:1.1.1',
-        COLLECTIONS,
+        COMMONS.logging,
+        COMMONS.collections,
         LOGBACK,
         transitive('org.mockito:mockito-core:jar:1.8.5', 
             'org.springframework:spring-test:jar:3.0.5.RELEASE')
@@ -75,6 +84,6 @@ define 'pls' do
     package :war, 
         :id => 'pls'
     package(:war).libs += artifacts(RUNTIME)
-    package(:war).libs -= artifacts(PROVIDED)
+    package(:war).libs -= artifacts(JAVAX.servletapi)
 
 end
