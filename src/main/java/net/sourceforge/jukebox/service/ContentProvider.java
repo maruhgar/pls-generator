@@ -103,7 +103,8 @@ public class ContentProvider {
             }
             ContentModel model = new ContentModel();
             model.setDisplayName(item.getName());
-            model.setAbsoluteFileName(item.getAbsolutePath().substring(rootFolderLength));
+            String folderPath = item.getAbsolutePath().substring(rootFolderLength);
+            model.setAbsoluteFileName(folderPath.replace("\\", "/"));
             model.setRecentUpdate(getUpdateStatus(item));
 
             if (item.isDirectory()) {

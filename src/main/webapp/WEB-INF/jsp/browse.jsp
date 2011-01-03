@@ -12,7 +12,7 @@
         <div class="folder">
             <c:forEach items="${dir}" var="items">
                 <div class="item">
-                    <a href="<c:url value="/play/browse?folder=${items.absoluteFileName}"/>">
+                    <a href="<c:url value="/play/browse/${items.absoluteFileName}"/>">
                         <img src="<c:url value="/images/dir.gif"/>" alt="Folder"/>&nbsp;${items.displayName}
                         <c:if test="${items.recentUpdate}" >
                             <span><fmt:message key="pls.browse.new"/></span>

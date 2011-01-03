@@ -21,6 +21,8 @@ import java.io.PrintWriter;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import net.sourceforge.jukebox.model.ContentModel;
 import net.sourceforge.jukebox.service.ContentProvider;
 
@@ -30,8 +32,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.HandlerMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -62,11 +63,14 @@ public class MediaBrowser {
 
     /**
      * List the contents of the media folder.
-     * @param folder Media folder
+     * @param request Servlet request
      * @return success view
      */
-    @RequestMapping(method = RequestMethod.GET)
-    public final ModelAndView listContents(@RequestParam(value = "folder", required = false) final String folder) {
+    @RequestMapping("/**")
+    public final ModelAndView listContents(HttpServletRequest request) {
+
+        String folder = (String) request.getAttribute(
+                HandlerMapping.PATH_WITHIN_HANDLER_MAPPING_ATTRIBUTE);
 
         logger.info("Listing contents of {}", folder);
 
