@@ -9,6 +9,7 @@ springVersion = '3.0.5.RELEASE'
 securityVersion = '3.0.5.RELEASE'
 slf4jVersion = '1.6.1'
 logbackVersion = '0.9.26'
+tilesVersion = '2.2.1'
 
 group = 'net.sourceforge.jukebox'
 version = '1.0-SNAPSHOT'
@@ -31,6 +32,7 @@ dependencies {
         [group: 'commons-configuration', name : 'commons-configuration', version : '1.6'],
         [group: 'javax.servlet', name : 'jstl', version : '1.1.2'],
         [group: 'javax.validation', name : 'validation-api', version : '1.0.0.GA'],
+        [group: 'org.apache.tiles', name : 'tiles-jsp', version : tilesVersion],
         [group: 'org.hibernate', name : 'hibernate-validator', version : '4.1.0.Final'],
         [group: 'org.slf4j', name : 'slf4j-api', version : slf4jVersion],
         [group: 'org.springframework', name : 'spring-core', version : springVersion],
@@ -48,9 +50,10 @@ dependencies {
         [group: 'org.springframework', name : 'spring-test', version : springVersion],
         [group: 'org.testng', name : 'testng', version : '5.14.2']
     )
-    runtime( 
+    runtime(
         [group: 'ch.qos.logback', name : 'logback-classic', version : logbackVersion],
         [group: 'ch.qos.logback', name : 'logback-core', version : logbackVersion],
+        [group: 'org.apache.tiles', name : 'tiles-core', version : tilesVersion],
         [group: 'org.slf4j', name : 'jcl-over-slf4j', version : slf4jVersion],
         [group: 'org.slf4j', name : 'jul-to-slf4j', version : slf4jVersion],
         [group: 'org.slf4j', name : 'log4j-over-slf4j', version : slf4jVersion],
@@ -64,5 +67,5 @@ sourceSets.main.compileClasspath += configurations.provided
 
 // Use TestNG instead of the default JUnit
 test {
-    useTestNG() 
+    useTestNG()
 }
