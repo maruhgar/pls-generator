@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+    <definition name="base.definition" template="/WEB-INF/jsp/layout.jsp">
+        <put-attribute name="title" value="" />
+        <put-attribute name="header" value="/WEB-INF/jsp/header.jsp" />
+        <put-attribute name="head" value="/WEB-INF/jsp/head.jsp" />
+        <put-attribute name="body" value="" />
+        <put-attribute name="footer" value="/WEB-INF/jsp/footer.jsp" />
+    </definition>
+
+    <definition name="browse" extends="base.definition">
+        <put-attribute name="title" value="Playlist Generator" />
+        <put-attribute name="body" value="/WEB-INF/jsp/browse.jsp" />
+    </definition>
+
+    <definition name="error" extends="base.definition">
+        <put-attribute name="title" value="Error Encountered" />
+        <put-attribute name="body" value="/WEB-INF/jsp/error.jsp" />
+    </definition>
+
+    <definition name="admin/configure" extends="base.definition">
+        <put-attribute name="title" value="Configure Settings" />
+        <put-attribute name="body" value="/WEB-INF/jsp/admin/configure.jsp" />
+    </definition>
+
+</tiles-definitions>
+
