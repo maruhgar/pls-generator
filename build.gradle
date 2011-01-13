@@ -8,7 +8,7 @@ buildDir = 'target'
 springVersion = '3.0.5.RELEASE'
 securityVersion = '3.0.5.RELEASE'
 slf4jVersion = '1.6.1'
-logbackVersion = '0.9.26'
+logbackVersion = '0.9.27'
 
 group = 'net.sourceforge.jukebox'
 version = '1.0-SNAPSHOT'
@@ -46,7 +46,7 @@ dependencies {
     testCompile(
         [group: 'org.mockito', name : 'mockito-core', version : '1.8.5'],
         [group: 'org.springframework', name : 'spring-test', version : springVersion],
-        [group: 'org.testng', name : 'testng', version : '5.14.2']
+        [group: 'org.testng', name : 'testng', version : '5.14.6']
     )
     runtime( 
         [group: 'ch.qos.logback', name : 'logback-classic', version : logbackVersion],

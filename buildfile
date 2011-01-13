@@ -7,7 +7,7 @@ desc 'Playlist Generator'
 LOGBACK = group('logback-classic', 
             'logback-core',
             :under=>'ch.qos.logback', 
-            :version=>'0.9.26')
+            :version=>'0.9.27')
 
 JAVAX = struct(
     :jstl       => 'javax.servlet:jstl:jar:1.1.2', 
