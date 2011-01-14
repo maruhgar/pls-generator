@@ -16,6 +16,11 @@
 
     <context:component-scan base-package="net.sourceforge.jukebox.web" />
 
+    <mvc:resources mapping="/css/**" location="/css/"/>
+    <mvc:resources mapping="/images/**" location="/images/"/>
+    <mvc:resources mapping="/themes/**" location="/themes/"/>
+    <mvc:resources mapping="/script/**" location="/script/"/>
+
     <bean id="validator"
         class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
 

@@ -64,6 +64,6 @@ public class ThemeConfiguration {
     public final String setTheme(@RequestParam("theme") final String theme, final HttpServletRequest request, final HttpServletResponse response) {
         logger.info("Changing the theme to " + theme);
         this.themeResolver.setThemeName(request, response, theme);
-        return "redirect:/play/browse";
+        return "redirect:/browse";
     }
 }

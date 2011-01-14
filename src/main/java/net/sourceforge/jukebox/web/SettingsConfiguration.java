@@ -89,7 +89,7 @@ public class SettingsConfiguration {
             return "admin/configure";
         }
         settings.save(configuration);
-        return "redirect:/play/browse";
+        return "redirect:/browse";
     }
 
     /**

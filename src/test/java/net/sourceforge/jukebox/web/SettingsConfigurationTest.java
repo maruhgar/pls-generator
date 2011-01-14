@@ -42,7 +42,7 @@ public class SettingsConfigurationTest {
     /**
      * Success view.
      */
-    private static final String SUCCESS_VIEW = "redirect:/play/browse";
+    private static final String SUCCESS_VIEW = "redirect:/browse";
     /**
      * Form view.
      */
