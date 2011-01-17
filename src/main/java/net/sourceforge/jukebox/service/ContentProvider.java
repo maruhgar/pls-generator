@@ -27,10 +27,13 @@ import net.sourceforge.jukebox.model.ContentModel;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
 /**
  * Gets the contents.
  */
+@Service
 public class ContentProvider {
 
     /**
@@ -46,11 +49,13 @@ public class ContentProvider {
     /**
      * Root folder.
      */
+    @Value("${content.dir:/var/cache/tomcat5/content}")
     private String rootFolder;
 
     /**
      * Modified days.
      */
+    @Value("${modified.days:7}")
     private int modifiedDays;
 
     /**
@@ -154,7 +159,7 @@ public class ContentProvider {
 
         int len = rootFolder.length();
 
-        File file = new File(rootFolder + folder);
+        File file = new File(rootFolder + File.separator + folder);
 
         File[] listFile = file.listFiles();
 

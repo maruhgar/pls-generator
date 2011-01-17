@@ -14,7 +14,7 @@
 
     <mvc:annotation-driven />
 
-    <context:component-scan base-package="net.sourceforge.jukebox.web" />
+    <context:component-scan base-package="net.sourceforge.jukebox" />
 
     <mvc:resources mapping="/resources/**" location="/"/>
 
@@ -32,7 +32,6 @@
     <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
         <property name="basenames">
             <list>
-                <value>classpath:application</value>
                 <value>classpath:net/sourceforge/jukebox/web/messages</value>
             </list>
         </property>
@@ -58,8 +57,4 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
-    <bean id="contentProvider" class="net.sourceforge.jukebox.service.ContentProvider">
-        <property name="rootFolder" value="${content.dir:/var/cache/tomcat5/content}" />
-        <property name="modifiedDays" value="${modified.days:7}"/>
-    </bean>
 </beans>
