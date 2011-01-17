@@ -59,7 +59,7 @@
     </bean>
 
     <bean id="contentProvider" class="net.sourceforge.jukebox.service.ContentProvider">
-        <property name="rootFolder" value="${content.dir:'/var/cache/tomcat5/content'}" />
+        <property name="rootFolder" value="${content.dir:/var/cache/tomcat5/content}" />
         <property name="modifiedDays" value="${modified.days:7}"/>
     </bean>
 </beans>

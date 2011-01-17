@@ -87,7 +87,7 @@ public class ContentProvider {
         if (folder == null) {
             parentFolder = this.rootFolder;
         } else {
-            parentFolder = this.rootFolder + folder;
+            parentFolder = this.rootFolder + File.separator + folder;
         }
 
 
@@ -103,7 +103,7 @@ public class ContentProvider {
             }
             ContentModel model = new ContentModel();
             model.setDisplayName(item.getName());
-            String folderPath = item.getAbsolutePath().substring(rootFolderLength);
+            String folderPath = item.getAbsolutePath().substring(rootFolderLength + 1);
             model.setAbsoluteFileName(folderPath.replace("\\", "/"));
             model.setRecentUpdate(getUpdateStatus(item));
 
