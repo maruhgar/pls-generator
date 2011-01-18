@@ -3,8 +3,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="pls"    tagdir="/WEB-INF/tags/pls" %>
 
-<!DOCTYPE html>
-
 <spring:theme var="images" code="images"/>
 
 <pls:page title="pls.title">
