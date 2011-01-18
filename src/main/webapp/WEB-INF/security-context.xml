@@ -9,22 +9,18 @@
            http://www.springframework.org/schema/security/spring-security-3.0.3.xsd">
 
     <http auto-config='true'>
-        <intercept-url pattern="/css/**" filters="none"/>
-        <intercept-url pattern="/images/**" filters="none"/>
-        <intercept-url pattern="/themes/**" filters="none"/>
-        <intercept-url pattern="/script/**" filters="none"/>
+        <intercept-url pattern="/resources/**" filters="none"/>
         <intercept-url pattern="/admin/**" access="ROLE_ADMIN" />
         <intercept-url pattern="/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
         <http-basic/>
     </http>
 
-    <authentication-manager>
+    <authentication-manager alias="authenticationManager">
         <authentication-provider>
             <password-encoder ref="passwordEncoder">
                 <salt-source ref="saltSource"/>
             </password-encoder>
-            <user-service>
-                <user name="Administrator" password="c870f0ff431973e34eb667c00e2f0e63dad16e4ed618c965e5786a2c34711c57" authorities="ROLE_ADMIN" />
+            <user-service id="userDetailsService" properties="classpath:user.properties">
             </user-service>
         </authentication-provider>
     </authentication-manager>
