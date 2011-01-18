@@ -79,7 +79,7 @@ public class ContentProvider {
      * @param folder folder holding the media
      * @return list of files and folders
      */
-    public Map<String, List<ContentModel>> getContent(final String folder) {
+    public final Map<String, List<ContentModel>> getContent(final String folder) {
 
         logger.info("Get content for {}", folder);
 
@@ -150,7 +150,7 @@ public class ContentProvider {
      * @param folder Folder name
      * @return Collection of media files
      */
-    public Collection<String> getAllFileNames(final String folder) {
+    public final Collection<String> getAllFileNames(final String folder) {
 
 
         logger.info("Get all media files in {}", folder);

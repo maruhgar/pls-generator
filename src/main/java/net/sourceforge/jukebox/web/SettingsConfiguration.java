@@ -53,11 +53,11 @@ public class SettingsConfiguration {
 
     /**
      * Set the application configuration.
-     * @param fileConfiguration Configuration
+     * @param configuration Configuration
      */
     @Autowired
-    public final void setConfiguration(final FileConfiguration fileConfiguration) {
-        this.configuration = fileConfiguration;
+    public final void setConfiguration(final FileConfiguration configuration) {
+        this.configuration = configuration;
     }
 
     /**
@@ -65,7 +65,7 @@ public class SettingsConfiguration {
      * @return Settings
      */
     @RequestMapping(method = RequestMethod.GET)
-    public Settings getSettings() {
+    public final Settings getSettings() {
 
         logger.info("Accessing the settings");
         Settings settings = new Settings();
@@ -81,7 +81,7 @@ public class SettingsConfiguration {
      * @throws ConfigurationException Configuration exception
      */
     @RequestMapping(method = RequestMethod.POST)
-    public String update(@Valid final Settings settings, final BindingResult result) throws ConfigurationException {
+    public final String update(@Valid final Settings settings, final BindingResult result) throws ConfigurationException {
 
         logger.info("Updating the settings");
         if (result.hasErrors()) {
