@@ -102,7 +102,7 @@ public class ProfileTest {
     @Test
     public final void testValidCurrentPassword() {
         UsernamePasswordAuthenticationToken auth =
-            new UsernamePasswordAuthenticationToken("Administrator", "password");
+            new UsernamePasswordAuthenticationToken(Profile.ADMIN_USERNAME, "password");
         SecurityContextHolder.getContext().setAuthentication(auth);
         Profile profile = createProfile("password", "newPassword", "newPassword");
         Set<ConstraintViolation<Profile>> constraintViolations =

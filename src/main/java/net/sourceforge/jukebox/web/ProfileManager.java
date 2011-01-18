@@ -97,7 +97,7 @@ public class ProfileManager {
         }
         profile.setNewPassword(this.profileService.encodePassword(profile.getNewPassword()));
         profile.save(this.profileConfiguration);
-        this.profileService.updateUserContext("Administrator");
+        this.profileService.updateUserContext(Profile.ADMIN_USERNAME);
         return "redirect:/browse";
     }
 }

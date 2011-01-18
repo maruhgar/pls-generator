@@ -15,6 +15,8 @@
  */
 package net.sourceforge.jukebox.service;
 
+import net.sourceforge.jukebox.model.Profile;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.authentication.dao.SaltSource;
@@ -79,7 +81,7 @@ public class ProfileService {
         Object salt = null;
 
         if (this.saltSource != null) {
-            salt = this.saltSource.getSalt(userDetailsService.loadUserByUsername("Administrator"));
+            salt = this.saltSource.getSalt(userDetailsService.loadUserByUsername(Profile.ADMIN_USERNAME));
         }
         return this.passwordEncoder.encodePassword(password, salt);
     }

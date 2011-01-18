@@ -29,6 +29,10 @@ import org.apache.commons.lang.ObjectUtils;
 public class Profile {
 
     /**
+     * Constant admin username for the application.
+     */
+    public static final String ADMIN_USERNAME = "Administrator";
+    /**
      * Constant value for size of password.
      */
     private static final int MIN_PASSWORD_SIZE = 6;
@@ -126,7 +130,7 @@ public class Profile {
      * @param configuration Configuration file
      */
     public final void load(final FileConfiguration configuration) {
-        String value = configuration.getString("Administrator");
+        String value = configuration.getString(ADMIN_USERNAME);
         int passwordLength = value.indexOf(',');
         this.oldPassword = value.substring(0, passwordLength);
         this.userInfo = value.substring(passwordLength + 1);
@@ -139,7 +143,7 @@ public class Profile {
      */
     public final void save(final FileConfiguration configuration) throws ConfigurationException {
         String value = this.newPassword + "," + this.userInfo;
-        configuration.setProperty("Administrator", value);
+        configuration.setProperty(ADMIN_USERNAME, value);
         configuration.save();
     }
 
