@@ -14,7 +14,7 @@
     <description>A web application to generate playlist from media folder</description>
     <url>http://code.google.com/p/pls-generator/</url>
     <inceptionYear>2010</inceptionYear>
-    
+
     <licenses>
       <license>
         <name>Apache 2</name>
@@ -45,6 +45,7 @@
         <spring.security.version>3.0.5.RELEASE</spring.security.version>
         <slf4j.version>1.6.1</slf4j.version>
         <logback.version>0.9.27</logback.version>
+        <tomcat.version>7.0.6</tomcat.version>
     </properties>
 
     <dependencies>
@@ -263,7 +264,7 @@
                         <version>2.1</version>
                         <executions>
                             <execution>
-                                <id>unpack-jetty</id>
+                                <id>unpack-tomcat</id>
                                 <phase>process-sources</phase>
                                 <goals>
                                     <goal>unpack</goal>
@@ -271,9 +272,9 @@
                                 <configuration>
                                     <artifactItems>
                                         <artifactItem>
-                                            <groupId>jetty</groupId>
-                                            <artifactId>jetty-hightide</artifactId>
-                                            <version>${jetty.version}</version>
+                                            <groupId>org.tomcat</groupId>
+                                            <artifactId>tomcat</artifactId>
+                                            <version>${tomcat.version}</version>
                                             <type>zip</type>
                                             <overWrite>false</overWrite>
                                             <outputDirectory>${project.build.directory}/</outputDirectory>
