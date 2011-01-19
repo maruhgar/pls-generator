@@ -10,19 +10,19 @@
             <ol>
                 <li><label for="oldPassword"><fmt:message key="pls.profile.password.old"/></label><form:errors path="oldPassword" cssClass="errors"/>
                 </li>
-                <li><form:password path="oldPassword" size="10" maxlength="14"/>
+                <li><form:password path="oldPassword" size="14" maxlength="14"/>
                 </li>
             </ol>
             <ol>
                 <li><label for="newPassword"><fmt:message key="pls.profile.password.new"/></label><form:errors path="newPassword" cssClass="errors"/>
                 </li>
-                <li><form:password path="newPassword" size="10" maxlength="14"/>
+                <li><form:password path="newPassword" size="14" maxlength="14"/>
                 </li>
             </ol>
             <ol>
                 <li><label for="confirmPassword"><fmt:message key="pls.profile.password.confirm"/></label><form:errors path="confirmPassword" cssClass="errors"/>
                 </li>
-                <li><form:password path="confirmPassword" size="10" maxlength="14"/>
+                <li><form:password path="confirmPassword" size="14" maxlength="14"/>
                 </li>
             </ol>
         </fieldset>
