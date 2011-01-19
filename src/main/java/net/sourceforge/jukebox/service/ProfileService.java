@@ -65,6 +65,14 @@ public class ProfileService {
     }
 
     /**
+     * Gives the salt source.  Used by unit test.
+     * @return salt source
+     */
+    public final SaltSource getSaltSource() {
+        return this.saltSource;
+    }
+
+    /**
      * @param userDetails the userDetailsService to set
      */
     @Autowired
@@ -77,7 +85,7 @@ public class ProfileService {
      * @param password Clear text password to be encoded.
      * @return Encoded password.
      */
-    public final String encodePassword(final String password) {
+    public String encodePassword(final String password) {
         Object salt = null;
 
         if (this.saltSource != null) {
@@ -90,7 +98,7 @@ public class ProfileService {
      * Update the user context in the session after password change.
      * @param user username
      */
-    public final void updateUserContext(final String user) {
+    public void updateUserContext(final String user) {
         Authentication currentAuth = SecurityContextHolder.getContext().getAuthentication();
 
         UserDetails userDetails = userDetailsService.loadUserByUsername(user);
