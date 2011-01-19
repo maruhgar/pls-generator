@@ -74,7 +74,7 @@ public class ProfileManager {
      */
     @RequestMapping(method = RequestMethod.GET)
     public final Profile getProfile() {
-        logger.info("Accessing the settings");
+        logger.info("Retrieving profile");
         Profile settings = new Profile();
         settings.load(this.profileConfiguration);
         return settings;
@@ -90,9 +90,9 @@ public class ProfileManager {
     @RequestMapping(method = RequestMethod.POST)
     public final String update(@Valid final Profile profile, final BindingResult result) throws ConfigurationException {
 
-        logger.info("Updating the profile");
+        logger.info("Updating profile");
         if (result.hasErrors()) {
-            logger.warn("Validation errors in the profile");
+            logger.warn("Validation errors in profile");
             return "admin/profile";
         }
         profile.setNewPassword(this.profileService.encodePassword(profile.getNewPassword()));
