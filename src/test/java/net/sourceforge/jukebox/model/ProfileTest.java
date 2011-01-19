@@ -21,34 +21,35 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Set;
 
+import javax.validation.ConstraintViolation;
+import javax.validation.Validator;
+
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.testng.annotations.BeforeClass;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.annotations.Test;
-import javax.validation.ConstraintViolation;
-import javax.validation.Validation;
-import javax.validation.Validator;
-import javax.validation.ValidatorFactory;
 
 /**
  * Tests {@link Profile} class.
  */
-public class ProfileTest {
+@ContextConfiguration
+public class ProfileTest extends AbstractTestNGSpringContextTests {
 
     /**
      * Validator object.
      */
-    private static Validator validator;
+    private Validator validator;
 
     /**
-     * Set up the validator object to be used by the tests.
+     * @param validator the validator to set
      */
-    @BeforeClass
-    public static void setUp() {
-        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-        validator = factory.getValidator();
+    @Autowired
+    public final void setValidator(final Validator validator) {
+        this.validator = validator;
     }
 
     /**
@@ -56,7 +57,7 @@ public class ProfileTest {
      */
     @Test
     public final void testValidProfile() {
-        Profile profile = createProfile("oldPassword", "newPassword", "newPassword");
+        Profile profile = createProfile("password", "newPassword", "newPassword");
         Set<ConstraintViolation<Profile>> constraintViolations =
             validator.validate(profile);
         assertEquals(constraintViolations.size(), 0);
@@ -71,6 +72,7 @@ public class ProfileTest {
         Set<ConstraintViolation<Profile>> constraintViolations =
             validator.validate(profile);
         assertEquals(constraintViolations.size(), 1);
+        assertEquals(constraintViolations.iterator().next().getMessage(), "Password and confirm password must match");
     }
 
     /**
@@ -82,6 +84,7 @@ public class ProfileTest {
         Set<ConstraintViolation<Profile>> constraintViolations =
             validator.validate(profile);
         assertEquals(constraintViolations.size(), 1);
+        assertEquals(constraintViolations.iterator().next().getMessage(), "Size must be between 6 and 14");
     }
 
     /**
@@ -93,22 +96,55 @@ public class ProfileTest {
         Set<ConstraintViolation<Profile>> constraintViolations =
             validator.validate(profile);
         assertEquals(constraintViolations.size(), 1);
+        assertEquals(constraintViolations.iterator().next().getMessage(), "may not be null");
     }
 
     /**
      * Tests the validator with a valid password.
-     * TODO: This needs to be relooked.
      */
     @Test
     public final void testValidCurrentPassword() {
         UsernamePasswordAuthenticationToken auth =
-            new UsernamePasswordAuthenticationToken(Profile.ADMIN_USERNAME, "password");
+            new UsernamePasswordAuthenticationToken(Profile.ADMIN_USERNAME, "Administrator");
         SecurityContextHolder.getContext().setAuthentication(auth);
-        Profile profile = createProfile("password", "newPassword", "newPassword");
+        Profile profile = createProfile("Administrator", "newPassword", "newPassword");
         Set<ConstraintViolation<Profile>> constraintViolations =
             validator.validate(profile);
         assertEquals(constraintViolations.size(), 0);
+        SecurityContextHolder.getContext().setAuthentication(null);
     }
+
+    /**
+     * Tests the validator with an invalid password.
+     */
+    @Test
+    public final void testInvalidCurrentPassword() {
+        UsernamePasswordAuthenticationToken auth =
+            new UsernamePasswordAuthenticationToken(Profile.ADMIN_USERNAME, "Administrator");
+        SecurityContextHolder.getContext().setAuthentication(auth);
+        Profile profile = createProfile("oldpassword", "newPassword", "newPassword");
+        Set<ConstraintViolation<Profile>> constraintViolations =
+            validator.validate(profile);
+        assertEquals(constraintViolations.size(), 1);
+        assertEquals(constraintViolations.iterator().next().getMessage(), "Current password is invalid");
+        SecurityContextHolder.getContext().setAuthentication(null);
+    }
+
+    /**
+     * Tests the validator with an authentication token with <code>null</code> principal.
+     */
+    @Test
+    public final void testInvalidTokenIncorrentPassword() {
+        UsernamePasswordAuthenticationToken auth =
+            new UsernamePasswordAuthenticationToken(null, "Administrator");
+        SecurityContextHolder.getContext().setAuthentication(auth);
+        Profile profile = createProfile("oldpassword", "newPassword", "newPassword");
+        Set<ConstraintViolation<Profile>> constraintViolations =
+            validator.validate(profile);
+        assertEquals(constraintViolations.size(), 0);
+        SecurityContextHolder.getContext().setAuthentication(null);
+    }
+
 
     /**
      * Tests the <code>load</code> and <code>save</code> methods.

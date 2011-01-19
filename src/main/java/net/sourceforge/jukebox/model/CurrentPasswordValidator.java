@@ -52,9 +52,6 @@ public class CurrentPasswordValidator implements ConstraintValidator<ValidCurren
 
     @Override
     public final boolean isValid(final String password, final ConstraintValidatorContext context) {
-        if (this.authenticationManager == null) {
-            return true;
-        }
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (auth == null || auth.getPrincipal() == null) {
             return true;
