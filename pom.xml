@@ -10,6 +10,34 @@
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
 
+    <name>Playlist Generator</name>
+    <description>A web application to generate playlist from media folder</description>
+    <url>http://code.google.com/p/pls-generator/</url>
+    <inceptionYear>2010</inceptionYear>
+
+    <licenses>
+      <license>
+        <name>Apache 2</name>
+        <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        <distribution>manual</distribution>
+        <comments>A business-friendly OSS license</comments>
+      </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>rbharathan</id>
+            <name>Raghuram Bharathan</name>
+            <url>http://maruhgar.blogspot.com</url>
+            <timezone>+5.5</timezone>
+        </developer>
+    </developers>
+
+    <issueManagement>
+        <system>Google Code</system>
+        <url>http://code.google.com/p/pls-generator/issues/list</url>
+    </issueManagement>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jetty.version>8.0.0.M2</jetty.version>
@@ -17,11 +45,9 @@
         <spring.security.version>3.0.5.RELEASE</spring.security.version>
         <slf4j.version>1.6.1</slf4j.version>
         <tiles.version>2.2.1</tiles.version>
-        <logback.version>0.9.26</logback.version>
+        <logback.version>0.9.27</logback.version>
+        <tomcat.version>7.0.6</tomcat.version>
     </properties>
-
-    <name>Playlist Generator</name>
-    <url>http://code.google.com/p/pls-generator/</url>
 
     <dependencies>
 
@@ -164,12 +190,10 @@
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>5.14.2</version>
+            <version>5.14.6</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
-
-    <inceptionYear>2010</inceptionYear>
 
     <scm>
         <url>https://pls-generator.googlecode.com/hg/</url>
@@ -186,8 +210,36 @@
                     <target>1.6</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>3.0-beta-3</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.1.1</version>
+                <configuration>
+                    <packagingExcludes>WEB-INF/web.xml</packagingExcludes>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
+
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.7</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <version>2.3.1</version>
+            </plugin>
+        </plugins>
+    </reporting>
 
     <profiles>
         <profile>
@@ -224,7 +276,7 @@
                         <version>2.1</version>
                         <executions>
                             <execution>
-                                <id>unpack-jetty</id>
+                                <id>unpack-tomcat</id>
                                 <phase>process-sources</phase>
                                 <goals>
                                     <goal>unpack</goal>
@@ -232,9 +284,9 @@
                                 <configuration>
                                     <artifactItems>
                                         <artifactItem>
-                                            <groupId>jetty</groupId>
-                                            <artifactId>jetty-hightide</artifactId>
-                                            <version>${jetty.version}</version>
+                                            <groupId>org.tomcat</groupId>
+                                            <artifactId>tomcat</artifactId>
+                                            <version>${tomcat.version}</version>
                                             <type>zip</type>
                                             <overWrite>false</overWrite>
                                             <outputDirectory>${project.build.directory}/</outputDirectory>

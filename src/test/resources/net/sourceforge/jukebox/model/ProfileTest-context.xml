@@ -8,12 +8,8 @@
            http://www.springframework.org/schema/security
            http://www.springframework.org/schema/security/spring-security-3.0.3.xsd">
 
-    <http auto-config='true'>
-        <intercept-url pattern="/resources/**" filters="none"/>
-        <intercept-url pattern="/admin/**" access="ROLE_ADMIN" />
-        <intercept-url pattern="/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
-        <http-basic/>
-    </http>
+    <beans:bean id="validator"
+        class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
 
     <authentication-manager alias="authenticationManager">
         <authentication-provider>
@@ -34,4 +30,5 @@
     </beans:bean>
 
 </beans:beans>
+
 

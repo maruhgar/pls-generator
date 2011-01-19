@@ -6,9 +6,9 @@
 <meta name="expires"       content="0"/>
 <meta charset="utf-8"/>
 
-<script type="text/javascript" src="<c:url value="/script/toggleCheckboxes.js"/>"></script>
+<script type="text/javascript" src="<c:url value="/resources/script/toggleCheckboxes.js"/>"></script>
 
-<link rel="stylesheet" href="<c:url value="/css/pls-default.css"/>"/>
+<link rel="stylesheet" href="<c:url value="/resources/css/pls-default.css"/>"/>
 
 <spring:theme var="css" code="css"/>
 

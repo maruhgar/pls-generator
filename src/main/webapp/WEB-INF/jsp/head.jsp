@@ -3,7 +3,7 @@
 
 <div class="heading">
 
-    <form method="post" action="<c:url value="/play/theme"/>">
+    <form method="post" action="<c:url value="/theme"/>">
         <div class="theme">
             <select name="theme">
                 <option value="default"><fmt:message key="pls.theme.default"/></option>
@@ -24,7 +24,8 @@
     <nav>
         <ul>
             <li><a href="<c:url value="/"/>"><fmt:message key="pls.menu.home"/></a></li>
-            <li><a href="<c:url value="/play/admin/configure"/>"><fmt:message key="pls.menu.configure"/></a></li>
+            <li><a href="<c:url value="/admin/configure"/>"><fmt:message key="pls.menu.configure"/></a></li>
+            <li><a href="<c:url value="/admin/profile"/>"><fmt:message key="pls.menu.profile"/></a></li>
         </ul>
     </nav>
 </div>

@@ -93,7 +93,7 @@ public class MediaBrowserTest {
      */
     @Test
     public final void testExceptionHandling() {
-        NullPointerException e = new NullPointerException();
+        IllegalArgumentException e = new IllegalArgumentException();
 
         MediaBrowser mediaBrowser = new MediaBrowser();
         mediaBrowser.setContentProvider(contentProvider);

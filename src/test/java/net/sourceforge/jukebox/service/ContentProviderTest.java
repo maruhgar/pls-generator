@@ -18,6 +18,7 @@ package net.sourceforge.jukebox.service;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotNull;
 import static org.testng.Assert.assertTrue;
+import static org.testng.Assert.fail;
 
 import java.io.File;
 import java.io.IOException;
@@ -66,13 +67,17 @@ public class ContentProviderTest {
     @BeforeClass
     public final void setUp() throws IOException {
         File contentFolder = new File(ROOT_FOLDER);
-        contentFolder.mkdir();
+        if (!contentFolder.mkdir()) {
+            fail("Set up failed");
+        }
         contentFolder.deleteOnExit();
         File mediaFile = File.createTempFile("dummy", ".mp3", contentFolder);
         mediaFile.deleteOnExit();
         media1 = mediaFile.getName();
         File subfolder = new File(ROOT_FOLDER, SUB_FOLDER);
-        subfolder.mkdir();
+        if (!subfolder.mkdir()) {
+            fail("Set up failed");
+        }
         subfolder.deleteOnExit();
         mediaFile = File.createTempFile("dummy1", ".mp3", subfolder);
         media2 = mediaFile.getName();

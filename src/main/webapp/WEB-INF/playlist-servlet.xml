@@ -14,7 +14,9 @@
 
     <mvc:annotation-driven />
 
-    <context:component-scan base-package="net.sourceforge.jukebox.web" />
+    <context:component-scan base-package="net.sourceforge.jukebox" />
+
+    <mvc:resources mapping="/resources/**" location="/"/>
 
     <bean id="validator"
         class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
@@ -38,6 +40,11 @@
 
     <bean id="configuration" class="org.apache.commons.configuration.PropertiesConfiguration" init-method="load">
         <property name="fileName" value="application.properties"/>
+    </bean>
+
+    <bean id="profileConfiguration" class="org.apache.commons.configuration.PropertiesConfiguration" init-method="load">
+        <property name="fileName" value="user.properties"/>
+        <property name="delimiterParsingDisabled" value="true"/>
     </bean>
 
     <!-- Themes -->
@@ -68,8 +75,4 @@
     </bean>
 
 
-    <bean id="contentProvider" class="net.sourceforge.jukebox.service.ContentProvider">
-        <property name="rootFolder" value="${content.dir:'/var/cache/tomcat5/content'}" />
-        <property name="modifiedDays" value="${modified.days:7}"/>
-    </bean>
 </beans>

@@ -5,10 +5,13 @@
     </formats>
     <fileSets>
         <fileSet>
-            <directory>${project.build.directory}/jetty-hightide-${jetty.version}</directory>
+            <directory>${project.build.directory}/apache-tomcat-${tomcat.version}</directory>
             <outputDirectory>/</outputDirectory>
             <excludes>
-                <exclude>**/javadoc/**</exclude>
+                <exclude>**/webapps/docs/**</exclude>
+                <exclude>**/webapps/examples/**</exclude>
+                <exclude>**/webapps/host-manager/**</exclude>
+                <exclude>**/webapps/manager/**</exclude>
             </excludes>
         </fileSet>
     </fileSets>

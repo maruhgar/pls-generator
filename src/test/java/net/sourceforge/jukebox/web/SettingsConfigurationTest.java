@@ -42,7 +42,7 @@ public class SettingsConfigurationTest {
     /**
      * Success view.
      */
-    private static final String SUCCESS_VIEW = "redirect:/play/browse";
+    private static final String SUCCESS_VIEW = "redirect:/browse";
     /**
      * Form view.
      */
@@ -101,7 +101,7 @@ public class SettingsConfigurationTest {
      */
     @Test
     public final void testExceptionHandling() {
-        NullPointerException e = new NullPointerException();
+        IllegalArgumentException e = new IllegalArgumentException();
 
         SettingsConfiguration settingsConfiguration = new SettingsConfiguration();
         ModelAndView modelAndView = settingsConfiguration.handleErrors(e);

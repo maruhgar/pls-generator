@@ -4,3 +4,4 @@ glob:target/*
 glob:.settings/*
 glob:test-output/*
 glob:.gradle/*
+glob:reports/*

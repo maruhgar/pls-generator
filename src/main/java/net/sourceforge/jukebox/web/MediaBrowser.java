@@ -67,7 +67,7 @@ public class MediaBrowser {
      * @return success view
      */
     @RequestMapping("/**")
-    public final ModelAndView listContents(HttpServletRequest request) {
+    public final ModelAndView listContents(final HttpServletRequest request) {
 
         String folder = (String) request.getAttribute(
                 HandlerMapping.PATH_WITHIN_HANDLER_MAPPING_ATTRIBUTE);

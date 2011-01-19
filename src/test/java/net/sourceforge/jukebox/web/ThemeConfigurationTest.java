@@ -37,7 +37,7 @@ public class ThemeConfigurationTest {
     /**
      * Success view.
      */
-    private static final String SUCCESS_VIEW = "redirect:/play/browse";
+    private static final String SUCCESS_VIEW = "redirect:/browse";
 
     /**
      * Tests the method to set the theme.
