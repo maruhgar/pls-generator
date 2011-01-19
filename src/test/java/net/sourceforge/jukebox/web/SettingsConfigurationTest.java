@@ -101,7 +101,7 @@ public class SettingsConfigurationTest {
      */
     @Test
     public final void testExceptionHandling() {
-        NullPointerException e = new NullPointerException();
+        IllegalArgumentException e = new IllegalArgumentException();
 
         SettingsConfiguration settingsConfiguration = new SettingsConfiguration();
         ModelAndView modelAndView = settingsConfiguration.handleErrors(e);
