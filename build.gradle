@@ -51,6 +51,7 @@ dependencies {
     runtime( 
         [group: 'ch.qos.logback', name : 'logback-classic', version : logbackVersion],
         [group: 'ch.qos.logback', name : 'logback-core', version : logbackVersion],
+        [group: 'org.freemarker', name : 'freemarker', version : '2.3.16'],
         [group: 'org.slf4j', name : 'jcl-over-slf4j', version : slf4jVersion],
         [group: 'org.slf4j', name : 'jul-to-slf4j', version : slf4jVersion],
         [group: 'org.slf4j', name : 'log4j-over-slf4j', version : slf4jVersion],

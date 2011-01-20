@@ -16,6 +16,8 @@
 
     <context:component-scan base-package="net.sourceforge.jukebox" />
 
+    <mvc:default-servlet-handler/>
+
     <mvc:resources mapping="/resources/**" location="/"/>
 
     <bean id="validator"
@@ -57,10 +59,14 @@
         <property name="basenamePrefix" value="net/sourceforge/jukebox/web/themes/"/>
     </bean>
 
-    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
-        <property name="prefix" value="/WEB-INF/jsp/"/>
-        <property name="suffix" value=".jsp"/>
+    <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+      <property name="templateLoaderPath" value="/WEB-INF/freemarker/"/>
+    </bean>
+
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+      <property name="cache" value="true"/>
+      <property name="prefix" value=""/>
+      <property name="suffix" value=".ftl"/>
     </bean>
 
 </beans>
