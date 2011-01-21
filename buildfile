@@ -11,7 +11,6 @@ LOGBACK = group('logback-classic',
             :version=>'0.9.27')
 
 JAVAX = struct(
-    :jstl       => 'javax.servlet:jstl:jar:1.1.2', 
     :servletapi => 'javax.servlet:servlet-api:jar:2.5',
     :validation => 'javax.validation:validation-api:jar:1.0.0.GA'
 )
@@ -66,13 +65,11 @@ define 'pls' do
     compile.with SPRING,
         COMMONS.configuration,
         COMMONS.lang,
-        JAVAX.jstl,
         JAVAX.validation,
         JAVAX.servletapi,
         'org.hibernate:hibernate-validator:jar:4.1.0.Final', 
         'org.slf4j:slf4j-api:jar:1.6.1', 
-        'org.springframework.security:spring-security-core:jar:3.0.5.RELEASE',
-        'taglibs:standard:jar:1.1.2' 
+        'org.springframework.security:spring-security-core:jar:3.0.5.RELEASE'
 
     test.using :testng
 
