@@ -9,7 +9,9 @@
 
 <link rel="stylesheet" href="<@spring.url '/resources/css/pls-default.css'/>"/>
 
-<#assign css = "<@spring:theme 'css'/>">
+<#assign css>
+    <@spring.theme "css"/>
+</#assign>
 
 <#if (css?length > 0)>
     <link rel="stylesheet" type="text/css" href="<@spring.url '${css}/style.css'/>"/>

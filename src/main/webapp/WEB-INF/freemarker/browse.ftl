@@ -10,7 +10,6 @@
         <#include "head.ftl">
         <div class="spacer"></div>
         <div class="body">
-            <#assign images = "<@spring:theme 'images'/>">
             <form method="post" action="generate">
                 <div class="folder">
                     <#list dir as item>
