@@ -15,9 +15,10 @@
  */
 package net.sourceforge.jukebox.service;
 
+import javax.inject.Inject;
+
 import net.sourceforge.jukebox.model.Profile;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.authentication.dao.SaltSource;
 import org.springframework.security.authentication.encoding.PasswordEncoder;
@@ -51,7 +52,7 @@ public class ProfileService {
     /**
      * @param encoder the passwordEncoder to set
      */
-    @Autowired
+    @Inject
     public final void setPasswordEncoder(final PasswordEncoder encoder) {
         this.passwordEncoder = encoder;
     }
@@ -59,7 +60,7 @@ public class ProfileService {
     /**
      * @param source the saltSource to set
      */
-    @Autowired
+    @Inject
     public final void setSaltSource(final SaltSource source) {
         this.saltSource = source;
     }
@@ -75,7 +76,7 @@ public class ProfileService {
     /**
      * @param userDetails the userDetailsService to set
      */
-    @Autowired
+    @Inject
     public final void setUserDetailsService(final UserDetailsService userDetails) {
         this.userDetailsService = userDetails;
     }

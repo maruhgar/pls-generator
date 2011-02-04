@@ -29,6 +29,7 @@ dependencies {
 
     compile(
         [group: 'commons-configuration', name : 'commons-configuration', version : '1.6'],
+        [group: 'javax.inject', name : 'javax.inject', version : '1'],
         [group: 'javax.servlet', name : 'jstl', version : '1.1.2'],
         [group: 'javax.validation', name : 'validation-api', version : '1.0.0.GA'],
         [group: 'org.hibernate', name : 'hibernate-validator', version : '4.1.0.Final'],

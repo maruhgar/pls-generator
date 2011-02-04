@@ -21,6 +21,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Set;
 
+import javax.inject.Inject;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
 
@@ -47,7 +48,7 @@ public class ProfileTest extends AbstractTestNGSpringContextTests {
     /**
      * @param validator the validator to set
      */
-    @Autowired
+    @Inject
     public final void setValidator(final Validator validator) {
         this.validator = validator;
     }

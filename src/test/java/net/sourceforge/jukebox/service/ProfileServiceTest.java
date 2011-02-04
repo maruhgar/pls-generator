@@ -15,6 +15,8 @@
  */
 package net.sourceforge.jukebox.service;
 
+import javax.inject.Inject;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.authentication.dao.SaltSource;
@@ -55,7 +57,7 @@ public class ProfileServiceTest extends AbstractTestNGSpringContextTests {
     /**
      * Profile service object.
      */
-    @Autowired
+    @Inject
     private ProfileService profileService;
 
     /**
