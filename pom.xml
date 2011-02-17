@@ -45,7 +45,7 @@
         <spring.security.version>3.0.5.RELEASE</spring.security.version>
         <slf4j.version>1.6.1</slf4j.version>
         <logback.version>0.9.28</logback.version>
-        <tomcat.version>7.0.6</tomcat.version>
+        <tomcat.version>7.0.8</tomcat.version>
     </properties>
 
     <dependencies>
@@ -183,7 +183,7 @@
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>5.14.7</version>
+            <version>5.14.10</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
