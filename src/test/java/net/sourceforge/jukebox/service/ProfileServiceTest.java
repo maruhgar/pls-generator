@@ -15,9 +15,10 @@
  */
 package net.sourceforge.jukebox.service;
 
+import static org.testng.Assert.assertEquals;
+
 import javax.inject.Inject;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.authentication.dao.SaltSource;
 import org.springframework.security.core.Authentication;
@@ -25,7 +26,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.annotations.Test;
-import static org.testng.Assert.assertEquals;
 
 /**
  * Tests the methods of {@link ProfileService}.
