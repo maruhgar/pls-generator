@@ -15,6 +15,7 @@
  */
 package net.sourceforge.jukebox.web;
 
+import javax.inject.Inject;
 import javax.validation.Valid;
 
 import net.sourceforge.jukebox.model.Profile;
@@ -24,7 +25,6 @@ import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.FileConfiguration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -55,7 +55,7 @@ public class ProfileManager {
      * Set the application configuration.
      * @param profileConfiguration Configuration
      */
-    @Autowired
+    @Inject
     public final void setProfileConfiguration(final FileConfiguration profileConfiguration) {
         this.profileConfiguration = profileConfiguration;
     }
@@ -63,7 +63,7 @@ public class ProfileManager {
     /**
      * @param profileService the profileService to set
      */
-    @Autowired
+    @Inject
     public final void setProfileService(final ProfileService profileService) {
         this.profileService = profileService;
     }
