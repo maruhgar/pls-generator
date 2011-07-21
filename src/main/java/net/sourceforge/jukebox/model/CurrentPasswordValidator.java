@@ -17,10 +17,10 @@
 
 package net.sourceforge.jukebox.model;
 
+import javax.inject.Inject;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -40,7 +40,7 @@ public class CurrentPasswordValidator implements ConstraintValidator<ValidCurren
     /**
      * @param authenticationManager the authenticationManager to set
      */
-    @Autowired
+    @Inject
     public final void setAuthenticationManager(final AuthenticationManager authenticationManager) {
         this.authenticationManager = authenticationManager;
     }

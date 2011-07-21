@@ -16,6 +16,8 @@
 
     <context:component-scan base-package="net.sourceforge.jukebox" />
 
+    <mvc:default-servlet-handler/>
+
     <mvc:resources mapping="/resources/**" location="/"/>
 
     <bean id="validator"

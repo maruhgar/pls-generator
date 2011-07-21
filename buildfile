@@ -12,6 +12,7 @@ LOGBACK = group('logback-classic',
             :version=>'0.9.27')
 
 JAVAX = struct(
+    :inject     => 'javax.inject:javax.inject:jar:1', 
     :jstl       => 'javax.servlet:jstl:jar:1.1.2', 
     :servletapi => 'javax.servlet:servlet-api:jar:2.5',
     :validation => 'javax.validation:validation-api:jar:1.0.0.GA'
@@ -78,6 +79,7 @@ define 'pls' do
     compile.with SPRING,
         COMMONS.configuration,
         COMMONS.lang,
+        JAVAX.inject,
         JAVAX.jstl,
         JAVAX.validation,
         JAVAX.servletapi,
@@ -94,6 +96,8 @@ define 'pls' do
         SPRINGSECURITYRUNTIME,
         COMMONS.logging,
         COMMONS.collections,
+        SPRINGRUNTIME,
+        SPRINGSECURITYRUNTIME,
         LOGBACK,
         transitive('org.mockito:mockito-core:jar:1.8.5', 
             'org.springframework:spring-test:jar:3.0.5.RELEASE')

@@ -21,12 +21,12 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Set;
 
+import javax.inject.Inject;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
 
 import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.PropertiesConfiguration;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.test.context.ContextConfiguration;
@@ -47,7 +47,7 @@ public class ProfileTest extends AbstractTestNGSpringContextTests {
     /**
      * @param validator the validator to set
      */
-    @Autowired
+    @Inject
     public final void setValidator(final Validator validator) {
         this.validator = validator;
     }

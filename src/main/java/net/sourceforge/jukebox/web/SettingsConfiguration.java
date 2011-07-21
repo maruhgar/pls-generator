@@ -18,6 +18,7 @@ package net.sourceforge.jukebox.web;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintWriter;
 
+import javax.inject.Inject;
 import javax.validation.Valid;
 
 import net.sourceforge.jukebox.model.Settings;
@@ -26,7 +27,6 @@ import org.apache.commons.configuration.ConfigurationException;
 import org.apache.commons.configuration.FileConfiguration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -55,7 +55,7 @@ public class SettingsConfiguration {
      * Set the application configuration.
      * @param configuration Configuration
      */
-    @Autowired
+    @Inject
     public final void setConfiguration(final FileConfiguration configuration) {
         this.configuration = configuration;
     }

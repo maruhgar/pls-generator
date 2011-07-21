@@ -44,9 +44,9 @@
         <spring.version>3.0.5.RELEASE</spring.version>
         <spring.security.version>3.0.5.RELEASE</spring.security.version>
         <slf4j.version>1.6.1</slf4j.version>
-        <tiles.version>2.2.1</tiles.version>
-        <logback.version>0.9.27</logback.version>
-        <tomcat.version>7.0.6</tomcat.version>
+        <tiles.version>2.2.2</tiles.version>
+        <logback.version>0.9.29</logback.version>
+        <tomcat.version>7.0.8</tomcat.version>
     </properties>
 
     <dependencies>
@@ -64,6 +64,11 @@
             <version>1.1.2</version>
         </dependency>
         <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+            <version>1</version>
+        </dependency>
+        <dependency>
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
             <version>1.0.0.GA</version>
@@ -76,7 +81,7 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
-            <version>4.1.0.Final</version>
+            <version>4.2.0.Final</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -190,7 +195,7 @@
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>5.14.6</version>
+            <version>6.1.1</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
@@ -236,7 +241,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-project-info-reports-plugin</artifactId>
-                <version>2.3.1</version>
+                <version>2.4</version>
             </plugin>
         </plugins>
     </reporting>
@@ -273,7 +278,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-dependency-plugin</artifactId>
-                        <version>2.1</version>
+                        <version>2.2</version>
                         <executions>
                             <execution>
                                 <id>unpack-tomcat</id>
@@ -299,7 +304,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-assembly-plugin</artifactId>
-                        <version>2.2</version>
+                        <version>2.2.1</version>
                         <executions>
                             <execution>
                                 <phase>package</phase>

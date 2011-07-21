@@ -21,6 +21,7 @@ import java.io.PrintWriter;
 import java.util.List;
 import java.util.Map;
 
+import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
 import net.sourceforge.jukebox.model.ContentModel;
@@ -28,7 +29,6 @@ import net.sourceforge.jukebox.service.ContentProvider;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -56,7 +56,7 @@ public class MediaBrowser {
      * Sets the content provider service.
      * @param provider Content Provider
      */
-    @Autowired
+    @Inject
     public final void setContentProvider(final ContentProvider provider) {
         this.contentProvider = provider;
     }

@@ -19,11 +19,12 @@ package net.sourceforge.jukebox.web;
 import java.util.Collection;
 import java.util.Locale;
 
+import javax.inject.Inject;
+
 import net.sourceforge.jukebox.service.ContentProvider;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -60,7 +61,7 @@ public class PlaylistGenerator {
      * Sets the content provider service.
      * @param provider Content Provider
      */
-    @Autowired
+    @Inject
     public final void setContentProvider(final ContentProvider provider) {
         this.contentProvider = provider;
     }
@@ -69,7 +70,7 @@ public class PlaylistGenerator {
      * Sets the application context.
      * @param context Application Context
      */
-    @Autowired
+    @Inject
     public final void setApplicationContext(final ApplicationContext context) {
         this.applicationContext = context;
     }
