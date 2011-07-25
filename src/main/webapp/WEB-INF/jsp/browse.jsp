@@ -6,7 +6,7 @@
 <spring:theme var="images" code="images"/>
 
 <pls:page title="pls.title">
-    <form method="post" action="generate">
+    <form method="post" action="<c:url value='/generate'/>">
         <div class="folder">
             <c:forEach items="${dir}" var="items">
                 <div class="item">
