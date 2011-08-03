@@ -171,7 +171,7 @@
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
-            <version>1.8.5</version>
+            <version>1.9.0-rc1</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -253,8 +253,8 @@
                 <plugins>
                     <plugin>
                         <groupId>org.codehaus.mojo</groupId>
-                        <artifactId>tomcat</artifactId>
-                        <version>1.0</version>
+                        <artifactId>tomcat-maven-plugin</artifactId>
+                        <version>1.1</version>
                     </plugin>
                 </plugins>
             </build>
