@@ -40,10 +40,10 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <jetty.version>8.0.0.M2</jetty.version>
-        <spring.version>3.0.5.RELEASE</spring.version>
-        <spring.security.version>3.0.5.RELEASE</spring.security.version>
-        <slf4j.version>1.6.1</slf4j.version>
+        <jetty.version>8.0.1.v20110908</jetty.version>
+        <spring.version>3.0.6.RELEASE</spring.version>
+        <spring.security.version>3.0.7.RELEASE</spring.security.version>
+        <slf4j.version>1.6.2</slf4j.version>
         <logback.version>0.9.29</logback.version>
         <tomcat.version>7.0.8</tomcat.version>
     </properties>
