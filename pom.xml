@@ -189,6 +189,7 @@
     </dependencies>
 
     <scm>
+        <developerConnection>scm:hg:https://pls-generator.googlecode.com/hg</developerConnection>
         <url>https://pls-generator.googlecode.com/hg/</url>
     </scm>
 
