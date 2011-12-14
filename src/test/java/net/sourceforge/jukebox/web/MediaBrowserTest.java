@@ -27,9 +27,7 @@ import java.util.Map;
 import net.sourceforge.jukebox.model.ContentModel;
 import net.sourceforge.jukebox.service.ContentProvider;
 
-import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.test.web.ModelAndViewAssert;
-import org.springframework.web.servlet.HandlerMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -64,25 +62,20 @@ public class MediaBrowserTest {
     public final void testListContents() {
         String folder = null;
 
-        MockHttpServletRequest request = new MockHttpServletRequest();
-        request.setAttribute(HandlerMapping.PATH_WITHIN_HANDLER_MAPPING_ATTRIBUTE, folder);
-
         when(contentProvider.getContent(anyString())).thenReturn(getDummyContent());
 
         MediaBrowser mediaBrowser = new MediaBrowser();
         mediaBrowser.setContentProvider(contentProvider);
 
         // Parameter is null
-        ModelAndView modelAndView = mediaBrowser.listContents(request);
+        ModelAndView modelAndView = mediaBrowser.listContents(folder);
         ModelAndViewAssert.assertModelAttributeAvailable(modelAndView, "dir");
         ModelAndViewAssert.assertModelAttributeAvailable(modelAndView, "files");
 
         folder = FOLDER;
 
-        request.setAttribute(HandlerMapping.PATH_WITHIN_HANDLER_MAPPING_ATTRIBUTE, folder);
-
         // Folder name passed as parameter
-        modelAndView = mediaBrowser.listContents(request);
+        modelAndView = mediaBrowser.listContents(folder);
         ModelAndViewAssert.assertModelAttributeAvailable(modelAndView, "dir");
         ModelAndViewAssert.assertModelAttributeAvailable(modelAndView, "files");
 
