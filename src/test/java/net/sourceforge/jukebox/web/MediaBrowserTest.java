@@ -27,7 +27,9 @@ import java.util.Map;
 import net.sourceforge.jukebox.model.ContentModel;
 import net.sourceforge.jukebox.service.ContentProvider;
 
+import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.test.web.ModelAndViewAssert;
+import org.springframework.web.servlet.HandlerMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -40,7 +42,9 @@ public class MediaBrowserTest {
     /**
      * Constant for folder name.
      */
-    private static final String FOLDER = "dummyFolder";
+    private static final String FOLDER = "/dummyFolder";
+    
+    private static final String SERVLET_PATH = "/pls";
 
     /**
      * Content provider object.
@@ -60,22 +64,25 @@ public class MediaBrowserTest {
      */
     @Test
     public final void testListContents() {
-        String folder = null;
 
+        MockHttpServletRequest request = new MockHttpServletRequest();
+        request.setServletPath(SERVLET_PATH);
+        request.setAttribute(HandlerMapping.BEST_MATCHING_PATTERN_ATTRIBUTE, SERVLET_PATH);
+        
         when(contentProvider.getContent(anyString())).thenReturn(getDummyContent());
 
         MediaBrowser mediaBrowser = new MediaBrowser();
         mediaBrowser.setContentProvider(contentProvider);
 
         // Parameter is null
-        ModelAndView modelAndView = mediaBrowser.listContents(folder);
+        ModelAndView modelAndView = mediaBrowser.listContents(request);
         ModelAndViewAssert.assertModelAttributeAvailable(modelAndView, "dir");
         ModelAndViewAssert.assertModelAttributeAvailable(modelAndView, "files");
 
-        folder = FOLDER;
-
+        request.setAttribute(HandlerMapping.BEST_MATCHING_PATTERN_ATTRIBUTE, SERVLET_PATH + FOLDER);
+        
         // Folder name passed as parameter
-        modelAndView = mediaBrowser.listContents(folder);
+        modelAndView = mediaBrowser.listContents(request);
         ModelAndViewAssert.assertModelAttributeAvailable(modelAndView, "dir");
         ModelAndViewAssert.assertModelAttributeAvailable(modelAndView, "files");
 

@@ -22,6 +22,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 import net.sourceforge.jukebox.model.ContentModel;
 import net.sourceforge.jukebox.service.ContentProvider;
@@ -29,17 +30,17 @@ import net.sourceforge.jukebox.service.ContentProvider;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.AntPathMatcher;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.HandlerMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
  * Controller to browse the media folder.
  */
 @Controller
-@RequestMapping("/browse")
 public class MediaBrowser {
 
     /**
@@ -66,11 +67,16 @@ public class MediaBrowser {
      * @param request Servlet request
      * @return success view
      */
-    @RequestMapping(method = RequestMethod.GET)
-	public final ModelAndView listContents(@RequestParam(value = "folder", required = false) final String folder) {
+    @RequestMapping(method = RequestMethod.GET, value="/browse/**")
+	public final ModelAndView listContents(HttpServletRequest request) {
 
+
+        String pattern = (String)
+            request.getAttribute(HandlerMapping.BEST_MATCHING_PATTERN_ATTRIBUTE);  
+
+        String folder = new AntPathMatcher().extractPathWithinPattern(pattern, 
+            request.getServletPath());
         logger.info("Listing contents of {}", folder);
-
         ModelAndView mav = new ModelAndView();
         Map<String, List<ContentModel>> contents = this.contentProvider.getContent(folder);
         mav.setViewName("browse");
