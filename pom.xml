@@ -38,7 +38,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jetty.version>8.1.9.v20130131</jetty.version>
-        <spring.version>3.2.0.RELEASE</spring.version>
+        <spring.version>3.2.1.RELEASE</spring.version>
         <spring.security.version>3.1.3.RELEASE</spring.security.version>
         <slf4j.version>1.7.2</slf4j.version>
         <logback.version>1.0.9</logback.version>
@@ -67,12 +67,12 @@
         <dependency>
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
-            <version>1.1.0.Beta2</version>
+            <version>1.1.0.CR1</version>
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
-            <version>5.0.0.Alpha2</version>
+            <version>5.0.0.CR1</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
