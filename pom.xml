@@ -38,7 +38,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jetty.version>8.1.10.v20130312</jetty.version>
-        <spring.version>3.2.4.RELEASE</spring.version>
+        <spring.version>3.2.5.RELEASE</spring.version>
         <spring.security.version>3.1.4.RELEASE</spring.security.version>
         <slf4j.version>1.7.5</slf4j.version>
         <logback.version>1.0.13</logback.version>
@@ -52,7 +52,7 @@
         <dependency>
             <groupId>commons-configuration</groupId>
             <artifactId>commons-configuration</artifactId>
-            <version>1.9</version>
+            <version>1.10</version>
         </dependency>
         <dependency>
             <groupId>org.glassfish</groupId>
@@ -75,11 +75,6 @@
             <groupId>javax.inject</groupId>
             <artifactId>javax.inject</artifactId>
             <version>1</version>
-        </dependency>
-        <dependency>
-            <groupId>javax.validation</groupId>
-            <artifactId>validation-api</artifactId>
-            <version>1.1.0.Final</version>
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
