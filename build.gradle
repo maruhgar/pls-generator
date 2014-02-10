@@ -8,10 +8,10 @@ apply plugin: 'jetty'
 buildDir = 'target'
 
 ext {
-    springVersion = '3.2.4.RELEASE'
-    securityVersion = '3.1.4.RELEASE'
-    slf4jVersion = '1.7.5'
-    logbackVersion = '1.0.13'
+    springVersion = '4.0.1.RELEASE'
+    securityVersion = '3.2.0.RELEASE'
+    slf4jVersion = '1.7.6'
+    logbackVersion = '1.1.1'
 }
 
 group = 'net.sourceforge.jukebox'
@@ -49,7 +49,7 @@ dependencies {
     )
 
     provided( 
-        [group: 'javax.servlet', name : 'servlet-api', version : '3.0-alpha-1'],
+        [group: 'javax.servlet', name : 'javax.servlet-api', version : '3.1.0'],
         [group: 'javax.el', name : 'javax.el-api', version : '3.0.0'],
         [group: 'org.glassfish', name : 'javax.el', version : '3.0.0']
     )
