@@ -9,13 +9,14 @@ desc 'Playlist Generator'
 LOGBACK = group('logback-classic', 
             'logback-core',
             :under=>'ch.qos.logback', 
-            :version=>'1.0.9')
+            :version=>'1.1.1')
 
 JAVAX = struct(
+    :el         => 'javax.el:javax.el-api:jar:3.0.0', 
     :inject     => 'javax.inject:javax.inject:jar:1', 
     :jstl       => 'javax.servlet:jstl:jar:1.1.2', 
-    :servletapi => 'javax.servlet:servlet-api:jar:3.0-alpha-1',
-    :validation => 'javax.validation:validation-api:jar:1.1.0.Beta2'
+    :servletapi => 'javax.servlet:javax.servlet-api:jar:3.1.0',
+    :validation => 'javax.validation:validation-api:jar:1.1.0.Final'
 )
 
 COMMONS = struct(
@@ -29,7 +30,7 @@ SLF4JRUNTIME = group('jul-to-slf4j',
                     'jcl-over-slf4j',
                     'log4j-over-slf4j',
                     :under=>'org.slf4j',
-                    :version=>'1.6.6')
+                    :version=>'1.7.6')
 
 SPRING = group('spring-beans', 
             'spring-context', 
@@ -38,7 +39,7 @@ SPRING = group('spring-beans',
             'spring-web', 
             'spring-webmvc',
             :under=>'org.springframework', 
-            :version=>'3.2.0.RELEASE')
+            :version=>'4.0.1.RELEASE')
 
 SPRINGRUNTIME = group('spring-aop',
             'spring-expression',
@@ -48,7 +49,7 @@ SPRINGRUNTIME = group('spring-aop',
 SPRINGSECURITYRUNTIME = group('spring-security-config', 
                     'spring-security-web',
                     :under=>'org.springframework.security',
-                    :version=>'3.1.3.RELEASE')
+                    :version=>'3.2.0.RELEASE')
 
 RUNTIME = [LOGBACK, 
     SLF4JRUNTIME, 
@@ -69,10 +70,11 @@ define 'pls' do
         JAVAX.jstl,
         JAVAX.validation,
         JAVAX.servletapi,
-        'org.hibernate:hibernate-validator:jar:5.0.0.Alpha2', 
-        'org.jboss.logging:jboss-logging:jar:3.1.1.GA',
-        'org.slf4j:slf4j-api:jar:1.7.2', 
-        'org.springframework.security:spring-security-core:jar:3.1.3.RELEASE',
+        JAVAX.el,
+        transitive('org.hibernate:hibernate-validator:jar:5.0.1.Final'), 
+        'org.glassfish:javax.el:jar:3.0.0',
+        'org.slf4j:slf4j-api:jar:1.7.6', 
+        'org.springframework.security:spring-security-core:jar:3.2.0.RELEASE',
         'taglibs:standard:jar:1.1.2' 
 
     test.using :testng
@@ -82,6 +84,7 @@ define 'pls' do
         SPRINGRUNTIME,
         SPRINGSECURITYRUNTIME,
         LOGBACK,
+        'org.testng:testng:jar:6.1.1', 
         transitive('org.mockito:mockito-core:jar:1.9.5', 
             'org.springframework:spring-test:jar:3.2.0.RELEASE')
    
