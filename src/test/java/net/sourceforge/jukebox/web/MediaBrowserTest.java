@@ -42,7 +42,9 @@ public class MediaBrowserTest {
     /**
      * Constant for folder name.
      */
-    private static final String FOLDER = "dummyFolder";
+    private static final String FOLDER = "/dummyFolder";
+    
+    private static final String SERVLET_PATH = "/pls";
 
     /**
      * Content provider object.
@@ -62,11 +64,11 @@ public class MediaBrowserTest {
      */
     @Test
     public final void testListContents() {
-        String folder = null;
 
         MockHttpServletRequest request = new MockHttpServletRequest();
-        request.setAttribute(HandlerMapping.PATH_WITHIN_HANDLER_MAPPING_ATTRIBUTE, folder);
-
+        request.setServletPath(SERVLET_PATH);
+        request.setAttribute(HandlerMapping.BEST_MATCHING_PATTERN_ATTRIBUTE, SERVLET_PATH);
+        
         when(contentProvider.getContent(anyString())).thenReturn(getDummyContent());
 
         MediaBrowser mediaBrowser = new MediaBrowser();
@@ -77,10 +79,8 @@ public class MediaBrowserTest {
         ModelAndViewAssert.assertModelAttributeAvailable(modelAndView, "dir");
         ModelAndViewAssert.assertModelAttributeAvailable(modelAndView, "files");
 
-        folder = FOLDER;
-
-        request.setAttribute(HandlerMapping.PATH_WITHIN_HANDLER_MAPPING_ATTRIBUTE, folder);
-
+        request.setAttribute(HandlerMapping.BEST_MATCHING_PATTERN_ATTRIBUTE, SERVLET_PATH + FOLDER);
+        
         // Folder name passed as parameter
         modelAndView = mediaBrowser.listContents(request);
         ModelAndViewAssert.assertModelAttributeAvailable(modelAndView, "dir");
