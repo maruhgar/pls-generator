@@ -59,7 +59,7 @@ TILES = group('tiles-core',
             'tiles-servlet',
             'tiles-template',
             :under=>'org.apache.tiles',
-            :version=>'2.2.1')
+            :version=>'3.0.3')
 
 RUNTIME = [COMMONS.beanutils,
     COMMONS.collections,
