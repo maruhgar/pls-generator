@@ -55,7 +55,7 @@ RUNTIME = [LOGBACK,
     SLF4JRUNTIME, 
     SPRINGRUNTIME, 
     SPRINGSECURITYRUNTIME, 
-    'org.freemarker:freemarker:jar:2.3.16',  
+    'org.freemarker:freemarker:jar:2.3.20',  
     COMMONS.collections]
 
 define 'pls' do
