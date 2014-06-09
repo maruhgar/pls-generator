@@ -8,10 +8,10 @@ apply plugin: 'jetty'
 buildDir = 'target'
 
 ext {
-    springVersion = '4.0.2.RELEASE'
-    securityVersion = '3.2.2.RELEASE'
-    slf4jVersion = '1.7.6'
-    logbackVersion = '1.1.1'
+    springVersion = '4.0.5.RELEASE'
+    securityVersion = '3.2.4.RELEASE'
+    slf4jVersion = '1.7.7'
+    logbackVersion = '1.1.2'
 }
 
 group = 'net.sourceforge.jukebox'
@@ -38,13 +38,13 @@ dependencies {
         [group: 'javax.inject', name : 'javax.inject', version : '1'],
         [group: 'javax.servlet', name : 'jstl', version : '1.1.2'],
         [group: 'javax.validation', name : 'validation-api', version : '1.1.0.Final'],
-        [group: 'org.hibernate', name : 'hibernate-validator', version : '5.1.0.Final'],
-        [group: 'org.slf4j', name : 'slf4j-api', version : ext.slf4jVersion],
-        [group: 'org.springframework', name : 'spring-core', version : ext.springVersion],
-        [group: 'org.springframework', name : 'spring-context', version : ext.springVersion],
-        [group: 'org.springframework', name : 'spring-web', version : ext.springVersion],
-        [group: 'org.springframework', name : 'spring-webmvc', version : ext.springVersion],
-        [group: 'org.springframework.security', name : 'spring-security-core', version : ext.securityVersion],
+        [group: 'org.hibernate', name : 'hibernate-validator', version : '5.1.1.Final'],
+        [group: 'org.slf4j', name : 'slf4j-api', version : slf4jVersion],
+        [group: 'org.springframework', name : 'spring-core', version : springVersion],
+        [group: 'org.springframework', name : 'spring-context', version : springVersion],
+        [group: 'org.springframework', name : 'spring-web', version : springVersion],
+        [group: 'org.springframework', name : 'spring-webmvc', version : springVersion],
+        [group: 'org.springframework.security', name : 'spring-security-core', version : securityVersion],
         [group: 'taglibs', name : 'standard', version : '1.1.2']
     )
 
@@ -56,17 +56,17 @@ dependencies {
 
     testCompile(
         [group: 'org.mockito', name : 'mockito-core', version : '1.9.5'],
-        [group: 'org.springframework', name : 'spring-test', version : ext.springVersion],
+        [group: 'org.springframework', name : 'spring-test', version : springVersion],
         [group: 'org.testng', name : 'testng', version : '6.8.8']
     )
     runtime( 
-        [group: 'ch.qos.logback', name : 'logback-classic', version : ext.logbackVersion],
-        [group: 'ch.qos.logback', name : 'logback-core', version : ext.logbackVersion],
-        [group: 'org.slf4j', name : 'jcl-over-slf4j', version : ext.slf4jVersion],
-        [group: 'org.slf4j', name : 'jul-to-slf4j', version : ext.slf4jVersion],
-        [group: 'org.slf4j', name : 'log4j-over-slf4j', version : ext.slf4jVersion],
-        [group: 'org.springframework.security', name : 'spring-security-config', version : ext.securityVersion],
-        [group: 'org.springframework.security', name : 'spring-security-web', version : ext.securityVersion]
+        [group: 'ch.qos.logback', name : 'logback-classic', version : logbackVersion],
+        [group: 'ch.qos.logback', name : 'logback-core', version : logbackVersion],
+        [group: 'org.slf4j', name : 'jcl-over-slf4j', version : slf4jVersion],
+        [group: 'org.slf4j', name : 'jul-to-slf4j', version : slf4jVersion],
+        [group: 'org.slf4j', name : 'log4j-over-slf4j', version : slf4jVersion],
+        [group: 'org.springframework.security', name : 'spring-security-config', version : securityVersion],
+        [group: 'org.springframework.security', name : 'spring-security-web', version : securityVersion]
     )
 }
 
