@@ -8,8 +8,8 @@ apply plugin: 'jetty'
 buildDir = 'target'
 
 ext {
-    springVersion = '4.0.1.RELEASE'
-    securityVersion = '3.2.0.RELEASE'
+    springVersion = '4.0.2.RELEASE'
+    securityVersion = '3.2.2.RELEASE'
     slf4jVersion = '1.7.6'
     logbackVersion = '1.1.1'
 }
@@ -38,7 +38,7 @@ dependencies {
         [group: 'javax.inject', name : 'javax.inject', version : '1'],
         [group: 'javax.servlet', name : 'jstl', version : '1.1.2'],
         [group: 'javax.validation', name : 'validation-api', version : '1.1.0.Final'],
-        [group: 'org.hibernate', name : 'hibernate-validator', version : '5.0.1.Final'],
+        [group: 'org.hibernate', name : 'hibernate-validator', version : '5.1.0.Final'],
         [group: 'org.slf4j', name : 'slf4j-api', version : ext.slf4jVersion],
         [group: 'org.springframework', name : 'spring-core', version : ext.springVersion],
         [group: 'org.springframework', name : 'spring-context', version : ext.springVersion],
@@ -57,7 +57,7 @@ dependencies {
     testCompile(
         [group: 'org.mockito', name : 'mockito-core', version : '1.9.5'],
         [group: 'org.springframework', name : 'spring-test', version : ext.springVersion],
-        [group: 'org.testng', name : 'testng', version : '6.1.1']
+        [group: 'org.testng', name : 'testng', version : '6.8.8']
     )
     runtime( 
         [group: 'ch.qos.logback', name : 'logback-classic', version : ext.logbackVersion],
