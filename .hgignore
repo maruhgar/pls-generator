@@ -5,4 +5,5 @@ glob:.settings/*
 glob:test-output/*
 glob:.gradle/*
 glob:reports/*
+glob:build/*
 gradle.properties

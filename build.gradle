@@ -8,8 +8,8 @@ apply plugin: 'jetty'
 buildDir = 'target'
 
 ext {
-    springVersion = '4.0.5.RELEASE'
-    securityVersion = '3.2.4.RELEASE'
+    springVersion = '4.0.6.RELEASE'
+    securityVersion = '3.2.5.RELEASE'
     slf4jVersion = '1.7.7'
     logbackVersion = '1.1.2'
 }
@@ -26,7 +26,7 @@ repositories {
 }
 
 configurations {
-    provided
+    providedCompile
     testCompile.extendsFrom provided
     compile.transitive = true
 }
@@ -38,7 +38,7 @@ dependencies {
         [group: 'javax.inject', name : 'javax.inject', version : '1'],
         [group: 'javax.servlet', name : 'jstl', version : '1.1.2'],
         [group: 'javax.validation', name : 'validation-api', version : '1.1.0.Final'],
-        [group: 'org.hibernate', name : 'hibernate-validator', version : '5.1.1.Final'],
+        [group: 'org.hibernate', name : 'hibernate-validator', version : '5.1.2.Final'],
         [group: 'org.slf4j', name : 'slf4j-api', version : slf4jVersion],
         [group: 'org.springframework', name : 'spring-core', version : springVersion],
         [group: 'org.springframework', name : 'spring-context', version : springVersion],
@@ -48,7 +48,7 @@ dependencies {
         [group: 'taglibs', name : 'standard', version : '1.1.2']
     )
 
-    provided( 
+    providedCompile ( 
         [group: 'javax.servlet', name : 'javax.servlet-api', version : '3.1.0'],
         [group: 'javax.el', name : 'javax.el-api', version : '3.0.0'],
         [group: 'org.glassfish', name : 'javax.el', version : '3.0.0']
@@ -71,7 +71,7 @@ dependencies {
 }
 
 // Added the provided dependency to compile classpath
-sourceSets.main.compileClasspath += configurations.provided
+// sourceSets.main.compileClasspath += configurations.provided
 
 // Use TestNG instead of the default JUnit
 test {
