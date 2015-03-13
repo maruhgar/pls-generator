@@ -193,8 +193,8 @@
     </dependencies>
 
     <scm>
-        <developerConnection>scm:hg:https://pls-generator.googlecode.com/hg</developerConnection>
-        <url>https://pls-generator.googlecode.com/hg/</url>
+        <developerConnection>scm:git:https://maruhgar@github.com/maruhgar/pls-generator</developerConnection>
+        <url>https://github.com/maruhgar/pls-generator</url>
     </scm>
 
     <build>
