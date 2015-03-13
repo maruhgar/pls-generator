@@ -53,13 +53,18 @@ SPRINGSECURITYRUNTIME = group('spring-security-config',
                     :under=>'org.springframework.security',
                     :version=>'3.2.6.RELEASE')
 
+TILESREQUEST = group('tiles-request-api', 
+            'tiles-request-servlet',
+            :under=>'org.apache.tiles',
+            :version=>'1.0.6')
+
 TILES = group('tiles-core', 
             'tiles-jsp',
             'tiles-api',
             'tiles-servlet',
             'tiles-template',
             :under=>'org.apache.tiles',
-            :version=>'3.0.3')
+            :version=>'3.0.5')
 
 RUNTIME = [COMMONS.beanutils,
     COMMONS.collections,
@@ -68,6 +73,7 @@ RUNTIME = [COMMONS.beanutils,
     SLF4JRUNTIME, 
     SPRINGRUNTIME, 
     SPRINGSECURITYRUNTIME, 
+    TILESREQUEST, 
     TILES]
 
 define 'pls' do
