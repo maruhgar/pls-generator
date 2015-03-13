@@ -41,17 +41,17 @@ SPRING = group('spring-beans',
             'spring-web', 
             'spring-webmvc',
             :under=>'org.springframework', 
-            :version=>'4.0.1.RELEASE')
+            :version=>'4.1.5.RELEASE')
 
 SPRINGRUNTIME = group('spring-aop',
             'spring-expression',
             :under=>'org.springframework', 
-            :version=>'3.2.0.RELEASE')
+            :version=>'4.1.5.RELEASE')
 
 SPRINGSECURITYRUNTIME = group('spring-security-config', 
                     'spring-security-web',
                     :under=>'org.springframework.security',
-                    :version=>'3.2.0.RELEASE')
+                    :version=>'3.2.6.RELEASE')
 
 TILES = group('tiles-core', 
             'tiles-jsp',
@@ -84,24 +84,22 @@ define 'pls' do
         JAVAX.validation,
         JAVAX.servletapi,
         JAVAX.el,
-        transitive('org.hibernate:hibernate-validator:jar:5.0.1.Final'), 
+        transitive('org.hibernate:hibernate-validator:jar:5.1.2.Final'), 
         'org.glassfish:javax.el:jar:3.0.0',
         'org.slf4j:slf4j-api:jar:1.7.6', 
-        'org.springframework.security:spring-security-core:jar:3.2.0.RELEASE',
+        'org.springframework.security:spring-security-core:jar:3.2.6.RELEASE',
         'taglibs:standard:jar:1.1.2' 
 
     test.using :testng
 
     test.with COMMONS.logging,
-        SPRINGRUNTIME,
-        SPRINGSECURITYRUNTIME,
         COMMONS.collections,
         SPRINGRUNTIME,
         SPRINGSECURITYRUNTIME,
         LOGBACK,
         'org.testng:testng:jar:6.1.1', 
         transitive('org.mockito:mockito-core:jar:1.9.5', 
-            'org.springframework:spring-test:jar:3.2.0.RELEASE')
+            'org.springframework:spring-test:jar:4.1.5.RELEASE')
 
     package :war, 
         :id => 'pls'
@@ -118,11 +116,4 @@ define 'pls' do
 	Readline::readline('[Type ENTER to stop Jetty]')
     end
 
-    task("jetty"=>[package(:war), jetty.use]) do |task|
-        jetty.deploy("http://localhost:8080", task.prerequisites.first)
-        trap 'SIGINT' do
-            jetty.stop
-        end
-        Thread.stop
-    end
 end
