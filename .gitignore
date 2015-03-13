@@ -1,9 +1,9 @@
-glob:.classpath
-glob:.project
-glob:target/*
-glob:.settings/*
-glob:test-output/*
-glob:.gradle/*
-glob:reports/*
-glob:build/*
+.classpath
+.project
+target/*
+.settings/*
+test-output/*
+.gradle/*
+reports/*
+build/*
 gradle.properties
