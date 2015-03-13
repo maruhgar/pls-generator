@@ -7,3 +7,4 @@ test-output/*
 reports/*
 build/*
 gradle.properties
+logs
