@@ -37,12 +37,12 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <jetty.version>8.1.10.v20130312</jetty.version>
-        <spring.version>4.0.1.RELEASE</spring.version>
-        <spring.security.version>3.2.0.RELEASE</spring.security.version>
-        <slf4j.version>1.7.6</slf4j.version>
-        <logback.version>1.1.1</logback.version>
-        <tomcat.version>7.0.42</tomcat.version>
+        <jetty.version>9.2.1.v20140609</jetty.version>
+        <spring.version>4.1.5.RELEASE</spring.version>
+        <spring.security.version>3.2.6.RELEASE</spring.security.version>
+        <slf4j.version>1.7.10</slf4j.version>
+        <logback.version>1.1.2</logback.version>
+        <tomcat.version>8.0.14</tomcat.version>
     </properties>
 
     <dependencies>
@@ -79,7 +79,7 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
-            <version>5.0.1.Final</version>
+            <version>5.1.2.Final</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -94,11 +94,6 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context-support</artifactId>
             <version>${spring.version}</version>
         </dependency>
         <dependency>
@@ -159,6 +154,11 @@
             <scope>runtime</scope>
         </dependency>
         <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-config</artifactId>
             <version>${spring.security.version}</version>
@@ -187,14 +187,14 @@
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>6.8.7</version>
+            <version>6.8.21</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
 
     <scm>
-        <developerConnection>scm:hg:https://pls-generator.googlecode.com/hg</developerConnection>
-        <url>https://pls-generator.googlecode.com/hg/</url>
+        <developerConnection>scm:git:https://maruhgar@github.com/maruhgar/pls-generator</developerConnection>
+        <url>https://github.com/maruhgar/pls-generator</url>
     </scm>
 
     <build>
@@ -202,16 +202,17 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.0</version>
+                <version>3.2</version>
                 <configuration>
                     <source>1.6</source>
                     <target>1.6</target>
+                    <compilerArgument>-Xlint:deprecation</compilerArgument>
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-site-plugin</artifactId>
-                <version>3.2</version>
+                <version>3.4</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -245,7 +246,7 @@
             <build>
                 <plugins>
                     <plugin>
-                        <groupId>org.mortbay.jetty</groupId>
+                        <groupId>org.eclipse.jetty</groupId>
                         <artifactId>jetty-maven-plugin</artifactId>
                         <version>${jetty.version}</version>
                     </plugin>
@@ -260,6 +261,18 @@
                         <groupId>org.apache.tomcat.maven</groupId>
                         <artifactId>tomcat7-maven-plugin</artifactId>
                         <version>2.1</version>
+                        <executions>
+                          <execution>
+                            <id>tomcat-run</id>
+                            <goals>
+                              <goal>exec-war-only</goal>
+                            </goals>
+                            <phase>package</phase>
+                            <configuration>
+                              <path>/</path>
+                            </configuration>
+                          </execution>
+                        </executions>
                     </plugin>
                 </plugins>
             </build>
