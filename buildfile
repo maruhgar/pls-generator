@@ -9,7 +9,7 @@ desc 'Playlist Generator'
 LOGBACK = group('logback-classic', 
             'logback-core',
             :under=>'ch.qos.logback', 
-            :version=>'1.1.1')
+            :version=>'1.1.2')
 
 JAVAX = struct(
     :el         => 'javax.el:javax.el-api:jar:3.0.0', 
@@ -20,7 +20,7 @@ JAVAX = struct(
 
 COMMONS = struct(
     :collections   => 'commons-collections:commons-collections:jar:3.2.1',
-    :configuration => 'commons-configuration:commons-configuration:jar:1.6',
+    :configuration => 'commons-configuration:commons-configuration:jar:1.10',
     :lang          => 'commons-lang:commons-lang:jar:2.5',
     :logging       => 'commons-logging:commons-logging:jar:1.1.1'
 )
@@ -29,7 +29,7 @@ SLF4JRUNTIME = group('jul-to-slf4j',
                     'jcl-over-slf4j',
                     'log4j-over-slf4j',
                     :under=>'org.slf4j',
-                    :version=>'1.7.6')
+                    :version=>'1.7.10')
 
 SPRING = group('spring-beans', 
             'spring-context', 
@@ -38,18 +38,18 @@ SPRING = group('spring-beans',
             'spring-web', 
             'spring-webmvc',
             :under=>'org.springframework', 
-            :version=>'4.0.1.RELEASE')
+            :version=>'4.1.5.RELEASE')
 
 SPRINGRUNTIME = group('spring-aop',
             'spring-expression',
             'spring-context-support',
             :under=>'org.springframework', 
-            :version=>'4.0.1.RELEASE')
+            :version=>'4.1.5.RELEASE')
 
 SPRINGSECURITYRUNTIME = group('spring-security-config', 
                     'spring-security-web',
                     :under=>'org.springframework.security',
-                    :version=>'3.2.0.RELEASE')
+                    :version=>'3.2.6.RELEASE')
 
 RUNTIME = [LOGBACK, 
     SLF4JRUNTIME, 
@@ -71,10 +71,10 @@ define 'pls' do
         JAVAX.validation,
         JAVAX.servletapi,
         JAVAX.el,
-        transitive('org.hibernate:hibernate-validator:jar:5.0.1.Final'), 
+        transitive('org.hibernate:hibernate-validator:jar:5.1.2.Final', 
         'org.glassfish:javax.el:jar:3.0.0',
-        'org.slf4j:slf4j-api:jar:1.7.6', 
-        'org.springframework.security:spring-security-core:jar:3.2.0.RELEASE'
+        'org.slf4j:slf4j-api:jar:1.7.10', 
+        'org.springframework.security:spring-security-core:jar:3.2.6.RELEASE')
 
     test.using :testng
 
@@ -85,7 +85,7 @@ define 'pls' do
         LOGBACK,
         'org.testng:testng:jar:6.1.1', 
         transitive('org.mockito:mockito-core:jar:1.9.5', 
-            'org.springframework:spring-test:jar:3.2.0.RELEASE')
+            'org.springframework:spring-test:jar:4.1.5.RELEASE')
    
     package :war, 
         :id => 'pls'
