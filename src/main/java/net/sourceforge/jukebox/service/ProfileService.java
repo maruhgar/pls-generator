@@ -17,15 +17,12 @@ package net.sourceforge.jukebox.service;
 
 import javax.inject.Inject;
 
-import net.sourceforge.jukebox.model.Profile;
-
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.authentication.dao.SaltSource;
-import org.springframework.security.authentication.encoding.PasswordEncoder;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 /**
@@ -40,11 +37,6 @@ public class ProfileService {
     private PasswordEncoder passwordEncoder;
 
     /**
-     * Salt source object.
-     */
-    private SaltSource saltSource;
-
-    /**
      * User details service.
      */
     private UserDetailsService userDetailsService;
@@ -55,22 +47,6 @@ public class ProfileService {
     @Inject
     public final void setPasswordEncoder(final PasswordEncoder encoder) {
         this.passwordEncoder = encoder;
-    }
-
-    /**
-     * @param source the saltSource to set
-     */
-    @Inject
-    public final void setSaltSource(final SaltSource source) {
-        this.saltSource = source;
-    }
-
-    /**
-     * Gives the salt source.  Used by unit test.
-     * @return salt source
-     */
-    public final SaltSource getSaltSource() {
-        return this.saltSource;
     }
 
     /**
@@ -87,12 +63,7 @@ public class ProfileService {
      * @return Encoded password.
      */
     public String encodePassword(final String password) {
-        Object salt = null;
-
-        if (this.saltSource != null) {
-            salt = this.saltSource.getSalt(userDetailsService.loadUserByUsername(Profile.ADMIN_USERNAME));
-        }
-        return this.passwordEncoder.encodePassword(password, salt);
+        return this.passwordEncoder.encode(password);
     }
 
     /**

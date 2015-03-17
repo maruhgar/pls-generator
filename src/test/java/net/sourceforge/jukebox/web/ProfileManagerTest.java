@@ -45,7 +45,7 @@ public class ProfileManagerTest {
     /**
      * Constant username.
      */
-    private static final String TEST_KEY = "Administrator";
+    private static final String TEST_KEY = "admin";
     /**
      * Success view.
      */

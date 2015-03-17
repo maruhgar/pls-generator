@@ -105,9 +105,9 @@ public class ProfileTest extends AbstractTestNGSpringContextTests {
     @Test
     public final void testValidCurrentPassword() {
         UsernamePasswordAuthenticationToken auth =
-            new UsernamePasswordAuthenticationToken(Profile.ADMIN_USERNAME, "Administrator");
+            new UsernamePasswordAuthenticationToken(Profile.ADMIN_USERNAME, "test1234");
         SecurityContextHolder.getContext().setAuthentication(auth);
-        Profile profile = createProfile("Administrator", "newPassword", "newPassword");
+        Profile profile = createProfile("test1234", "newPassword", "newPassword");
         Set<ConstraintViolation<Profile>> constraintViolations =
             validator.validate(profile);
         assertEquals(constraintViolations.size(), 0);
@@ -120,7 +120,7 @@ public class ProfileTest extends AbstractTestNGSpringContextTests {
     @Test
     public final void testInvalidCurrentPassword() {
         UsernamePasswordAuthenticationToken auth =
-            new UsernamePasswordAuthenticationToken(Profile.ADMIN_USERNAME, "Administrator");
+            new UsernamePasswordAuthenticationToken(Profile.ADMIN_USERNAME, "test1234");
         SecurityContextHolder.getContext().setAuthentication(auth);
         Profile profile = createProfile("oldpassword", "newPassword", "newPassword");
         Set<ConstraintViolation<Profile>> constraintViolations =

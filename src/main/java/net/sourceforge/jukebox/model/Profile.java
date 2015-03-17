@@ -31,7 +31,7 @@ public class Profile {
     /**
      * Constant admin username for the application.
      */
-    public static final String ADMIN_USERNAME = "Administrator";
+    public static final String ADMIN_USERNAME = "admin";
     /**
      * Constant value for size of password.
      */

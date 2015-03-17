@@ -20,9 +20,9 @@ import static org.testng.Assert.assertEquals;
 import javax.inject.Inject;
 
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.authentication.dao.SaltSource;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.annotations.Test;
@@ -36,48 +36,21 @@ public class ProfileServiceTest extends AbstractTestNGSpringContextTests {
     /**
      * Constant test user.
      */
-    private static final String TEST_USER = "Administrator";
-    /**
-     * Constant test password string.
-     */
-    private static final String TEST_PASSWORD = "testpassword";
+    private static final String TEST_USER = "admin";
     /**
      * Constant encoded password.
      */
-    private static final String ENCODED_PASSWORD = "92be23767a5884077447a10fc31b637867a78eb1415b026d408114df147ae3e7";
-    /**
-     * Constant encoded password without salt.
-     */
-    private static final String ENCODED_WITHOUT_SALT = "9f735e0df9a1ddc702bf0a1a7b83033f9f7153a00c29de82cedadc9957289b05";
+    private static final String ENCODED_PASSWORD = "$2a$10$POSCjDORsHoRkwx.pdF2vuKSx8ZGJcUkuh7at4m2tIp0R5F9oddga";
     /**
      * Original password of user.
      */
-    private static final String ORIGINAL_PASSWORD = "c870f0ff431973e34eb667c00e2f0e63dad16e4ed618c965e5786a2c34711c57";
+    private static final String ORIGINAL_PASSWORD = "$2a$10$9Ii6W9UIlBtGeMs27eZPn.pJFRz533tFD4/.BtIUPG7c71tCxxnGi";
 
     /**
      * Profile service object.
      */
     @Inject
     private ProfileService profileService;
-
-    /**
-     * Tests the method to encode password.
-     */
-    @Test
-    public final void testEncodePassword() {
-        assertEquals(profileService.encodePassword(TEST_PASSWORD), ENCODED_PASSWORD);
-    }
-
-    /**
-     * Tests the method to encode the password passing no salt.
-     */
-    @Test
-    public final void testEncodePasswordWithNullSalt() {
-        SaltSource saltSource = profileService.getSaltSource();
-        profileService.setSaltSource(null);
-        assertEquals(profileService.encodePassword(TEST_PASSWORD), ENCODED_WITHOUT_SALT);
-        profileService.setSaltSource(saltSource);
-    }
 
     /**
      * Tests the method to update user context.
@@ -101,4 +74,18 @@ public class ProfileServiceTest extends AbstractTestNGSpringContextTests {
         Authentication updatedAuthentication = SecurityContextHolder.getContext().getAuthentication();
         assertEquals(updatedAuthentication.getCredentials(), ORIGINAL_PASSWORD);
     }
+
+    public static void main(String[] args) {
+
+    	int i = 0;
+    	while (i < 10) {
+    		String password = "testpassword";
+    		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+    		String hashedPassword = passwordEncoder.encode(password);
+
+    		System.out.println(hashedPassword);
+    		i++;
+    	}
+
+      }
 }
