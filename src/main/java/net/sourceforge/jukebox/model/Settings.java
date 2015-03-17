@@ -136,11 +136,7 @@ public class Settings {
         configuration.save();
     }
 
-    /**
-     * Equals.
-     * @param other the other object
-     * @return <code>true</code> or <code>false</code>
-     */
+    @Override
     public final boolean equals(final Object other) {
         if (other == null || this.getClass() != other.getClass()) {
             return false;
@@ -150,10 +146,7 @@ public class Settings {
             && ObjectUtils.equals(this.modifiedDays, ((Settings) other).modifiedDays);
     }
 
-    /**
-     * Hashcode.
-     * @return hashcode
-     */
+    @Override
     public final int hashCode() {
         return ObjectUtils.hashCode(this.contentFolder) + ObjectUtils.hashCode(this.playerUrl)
             + ObjectUtils.hashCode(this.modifiedDays);

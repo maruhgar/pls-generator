@@ -87,11 +87,7 @@ public class ContentModel {
         this.recentUpdate = update;
     }
 
-    /**
-     * Equals.
-     * @param other the other object
-     * @return <code>true</code> or <code>false</code>
-     */
+    @Override
     public final boolean equals(final Object other) {
         if (other == null || this.getClass() != other.getClass()) {
             return false;
@@ -101,10 +97,7 @@ public class ContentModel {
             && ObjectUtils.equals(this.recentUpdate, ((ContentModel) other).recentUpdate);
     }
 
-    /**
-     * Hashcode.
-     * @return hashcode
-     */
+    @Override
     public final int hashCode() {
         return ObjectUtils.hashCode(this.absoluteFileName) + ObjectUtils.hashCode(this.displayName)
             + ObjectUtils.hashCode(this.recentUpdate);

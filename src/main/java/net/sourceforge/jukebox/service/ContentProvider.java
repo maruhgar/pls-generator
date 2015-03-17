@@ -44,7 +44,7 @@ public class ContentProvider {
     /**
      * Constant used in calculating modified days.
      */
-    private static final long MILLISECONDS_PER_DAY = 24 * 3600 * 1000;
+    private static final long MILLISECONDS_PER_DAY = 24L * 3600 * 1000;
 
     /**
      * Root folder.
