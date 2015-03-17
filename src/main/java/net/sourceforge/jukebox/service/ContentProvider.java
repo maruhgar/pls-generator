@@ -83,13 +83,13 @@ public class ContentProvider {
 
         logger.info("Get content for {}", folder);
 
-        int rootFolderLength = this.rootFolder.length();
+        int rootFolderLength = new File(rootFolder).getAbsolutePath().length();
 
         List<ContentModel> folders = new ArrayList<ContentModel>();
         List<ContentModel> files = new ArrayList<ContentModel>();
 
         String parentFolder;
-        if (folder == null) {
+        if (folder != null && folder.isEmpty()) {
             parentFolder = this.rootFolder;
         } else {
             parentFolder = this.rootFolder + File.separator + folder;

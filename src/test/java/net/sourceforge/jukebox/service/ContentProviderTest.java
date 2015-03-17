@@ -93,7 +93,7 @@ public class ContentProviderTest {
         ContentProvider provider = new ContentProvider();
         provider.setRootFolder(ROOT_FOLDER);
         provider.setModifiedDays(1);
-        Map<String, List<ContentModel>> contents = provider.getContent(null);
+        Map<String, List<ContentModel>> contents = provider.getContent("");
         assertNotNull(contents);
         List<ContentModel> files = contents.get("files");
         assertNotNull(files);
