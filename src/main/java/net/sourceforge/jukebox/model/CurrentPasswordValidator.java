@@ -21,6 +21,8 @@ import javax.inject.Inject;
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -32,6 +34,10 @@ import org.springframework.security.core.context.SecurityContextHolder;
  */
 public class CurrentPasswordValidator implements ConstraintValidator<ValidCurrentPassword, String> {
 
+    /**
+     * Logger object.
+     */
+    private static final Logger logger = LoggerFactory.getLogger("CurrentPasswordValidator");
     /**
      * Authentication manager object to change authentication info after password update.
      */
@@ -60,6 +66,7 @@ public class CurrentPasswordValidator implements ConstraintValidator<ValidCurren
             this.authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(auth.getPrincipal(), password));
         } catch (AuthenticationException e) {
+        	logger.info("Password validation error ", e);
             return false;
         }
         return true;

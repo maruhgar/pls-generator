@@ -72,9 +72,9 @@ public class MediaBrowser {
 
 
         String pattern = (String)
-            request.getAttribute(HandlerMapping.BEST_MATCHING_PATTERN_ATTRIBUTE);  
+            request.getAttribute(HandlerMapping.BEST_MATCHING_PATTERN_ATTRIBUTE);
 
-        String folder = new AntPathMatcher().extractPathWithinPattern(pattern, 
+        String folder = new AntPathMatcher().extractPathWithinPattern(pattern,
             request.getServletPath());
         logger.info("Listing contents of {}", folder);
         ModelAndView mav = new ModelAndView();
