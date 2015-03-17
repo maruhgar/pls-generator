@@ -1,9 +1,10 @@
 .classpath
 .project
-target/*
+logs/*
 .settings/*
 test-output/*
 .gradle/*
 reports/*
 build/*
 gradle.properties
+/target/*
