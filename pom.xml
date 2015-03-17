@@ -9,7 +9,7 @@
 
     <name>Playlist Generator</name>
     <description>A web application to generate playlist from media folder</description>
-    <url>http://code.google.com/p/pls-generator/</url>
+    <url>https://github.com/maruhgar/pls-generator/</url>
     <inceptionYear>2010</inceptionYear>
 
     <licenses>
