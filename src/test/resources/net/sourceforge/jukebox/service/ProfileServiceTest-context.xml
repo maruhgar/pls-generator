@@ -6,14 +6,12 @@
   xsi:schemaLocation="http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
            http://www.springframework.org/schema/security
-           http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+           http://www.springframework.org/schema/security/spring-security.xsd">
 
     <beans:bean id="profileService" class="net.sourceforge.jukebox.service.ProfileService"/>
 
     <authentication-manager alias="authenticationManager">
         <authentication-provider>
-            <password-encoder ref="passwordEncoder">
-            </password-encoder>
             <user-service id="userDetailsService" properties="classpath:user.properties">
             </user-service>
         </authentication-provider>

@@ -44,7 +44,7 @@ public class ProfileServiceTest extends AbstractTestNGSpringContextTests {
     /**
      * Original password of user.
      */
-    private static final String ORIGINAL_PASSWORD = "$2a$10$9Ii6W9UIlBtGeMs27eZPn.pJFRz533tFD4/.BtIUPG7c71tCxxnGi";
+    private static final String ORIGINAL_PASSWORD = "{bcrypt}$2a$10$9Ii6W9UIlBtGeMs27eZPn.pJFRz533tFD4/.BtIUPG7c71tCxxnGi";
 
     /**
      * Profile service object.
