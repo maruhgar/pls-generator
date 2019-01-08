@@ -87,7 +87,7 @@ public class SettingsTest {
         settings.setModifiedDays(0);
         Set<ConstraintViolation<Settings>> constraintViolations = validator.validate(settings);
         assertEquals(constraintViolations.size(), 1);
-        assertEquals(constraintViolations.iterator().next().getMessage(), "may not be null");
+        assertEquals(constraintViolations.iterator().next().getMessage(), "must not be null");
     }
 
     /**
