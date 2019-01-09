@@ -5,7 +5,7 @@
     <groupId>net.sourceforge.jukebox</groupId>
     <artifactId>pls</artifactId>
     <packaging>war</packaging>
-    <version>1.2-SNAPSHOT</version>
+    <version>1.2</version>
 
     <name>Playlist Generator</name>
     <description>A web application to generate playlist from media folder</description>
@@ -195,7 +195,7 @@
     <scm>
         <developerConnection>scm:git:https://maruhgar@github.com/maruhgar/pls-generator</developerConnection>
         <url>https://github.com/maruhgar/pls-generator</url>
-      <tag>HEAD</tag>
+      <tag>pls-1.2</tag>
   </scm>
 
     <build>
