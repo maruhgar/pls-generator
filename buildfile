@@ -61,7 +61,7 @@ define 'pls' do
 
     project.group = 'net.sourceforge.jukebox'
 
-    project.version = '1.2-SNAPSHOT'
+    project.version = '1.3-SNAPSHOT'
 
     compile.with SPRING,
         COMMONS.configuration,
