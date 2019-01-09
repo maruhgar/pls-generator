@@ -2,14 +2,14 @@
 # Standard maven2 repository
 require 'buildr/jetty'
 require 'readline'
-repositories.remote << 'http://repo1.maven.org/maven2/'
+repositories.remote << 'https://repo.maven.apache.org/maven2/'
 
 desc 'Playlist Generator'
 
 LOGBACK = group('logback-classic', 
             'logback-core',
             :under=>'ch.qos.logback', 
-            :version=>'1.1.2')
+            :version=>'1.2.3')
 
 JAVAX = struct(
     :el         => 'javax.el:javax.el-api:jar:3.0.0', 
@@ -30,7 +30,7 @@ SLF4JRUNTIME = group('jul-to-slf4j',
                     'jcl-over-slf4j',
                     'log4j-over-slf4j',
                     :under=>'org.slf4j',
-                    :version=>'1.7.10')
+                    :version=>'1.7.25')
 
 SPRING = group('spring-beans', 
             'spring-context', 
@@ -39,17 +39,17 @@ SPRING = group('spring-beans',
             'spring-web', 
             'spring-webmvc',
             :under=>'org.springframework', 
-            :version=>'4.1.5.RELEASE')
+            :version=>'5.1.3.RELEASE')
 
 SPRINGRUNTIME = group('spring-aop',
             'spring-expression',
             :under=>'org.springframework', 
-            :version=>'4.1.5.RELEASE')
+            :version=>'5.1.3.RELEASE')
 
 SPRINGSECURITYRUNTIME = group('spring-security-config', 
                     'spring-security-web',
                     :under=>'org.springframework.security',
-                    :version=>'3.2.6.RELEASE')
+                    :version=>'5.1.2.RELEASE')
 
 RUNTIME = [LOGBACK, 
     SLF4JRUNTIME, 
@@ -61,7 +61,7 @@ define 'pls' do
 
     project.group = 'net.sourceforge.jukebox'
 
-    project.version = '1.1-SNAPSHOT'
+    project.version = '1.2-SNAPSHOT'
 
     compile.with SPRING,
         COMMONS.configuration,
@@ -71,10 +71,10 @@ define 'pls' do
         JAVAX.validation,
         JAVAX.servletapi,
         JAVAX.el,
-        transitive('org.hibernate:hibernate-validator:jar:5.1.2.Final'), 
+        transitive('org.hibernate.validator:hibernate-validator:jar:6.0.14.Final'), 
         'org.glassfish:javax.el:jar:3.0.0',
-        'org.slf4j:slf4j-api:jar:1.7.10', 
-        'org.springframework.security:spring-security-core:jar:3.2.6.RELEASE',
+        'org.slf4j:slf4j-api:jar:1.7.25', 
+        'org.springframework.security:spring-security-core:jar:5.1.2.RELEASE',
         'taglibs:standard:jar:1.1.2' 
 
     test.using :testng
@@ -84,9 +84,10 @@ define 'pls' do
         SPRINGRUNTIME,
         SPRINGSECURITYRUNTIME,
         LOGBACK,
-        'org.testng:testng:jar:6.1.1', 
-        transitive('org.mockito:mockito-core:jar:1.9.5', 
-            'org.springframework:spring-test:jar:4.1.5.RELEASE')
+        transitive('org.hibernate.validator:hibernate-validator:jar:6.0.14.Final'), 
+        'org.testng:testng:jar:6.14.3', 
+        transitive('org.mockito:mockito-core:jar:2.23.4', 
+            'org.springframework:spring-test:jar:5.1.3.RELEASE')
    
     package :war, 
         :id => 'pls'
@@ -94,8 +95,7 @@ define 'pls' do
     package(:war).libs -= artifacts(JAVAX.servletapi)
 
     Java.classpath.concat([
-        "org.mortbay.jetty:jsp-api-2.1:jar:#{Buildr::Jetty::VERSION}",
-        "org.mortbay.jetty:jsp-2.1:jar:#{Buildr::Jetty::VERSION}"
+        "jetty:jsp-api:jar:2.1-6.0.2"
     ])
 
     task("jetty"=>[package(:war), jetty.use]) do |task|
